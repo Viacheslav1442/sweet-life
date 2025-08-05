@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweet Life</title>
+    <link rel="stylesheet" href="./src/styles/main.css" />
+    <link rel="stylesheet" href="./src/styles/modal.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Sweet Life!</h1>
+        <button id="joinBtn">Приєднатись</button>
+    </header>
+
+    <!-- Модальне вікно -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Заповніть форму</h2>
+            <form id="joinForm">
+                <input type="text" name="firstName" placeholder="Імʼя" required />
+                <input type="text" name="lastName" placeholder="Прізвище" required />
+                <input type="tel" name="phone" placeholder="Телефон" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <button type="submit">Оплатити</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
