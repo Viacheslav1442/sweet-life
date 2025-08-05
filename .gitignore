@@ -1,0 +1,25 @@
+# Node modules (якщо будеш ставити пакети через npm)
+node_modules/
+
+# Логи
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Операційні системи
+.DS_Store         # macOS
+Thumbs.db         # Windows
+
+# Середовище розробки
+.vscode/
+.idea/
+
+# Продакшн-білд (якщо буде)
+dist/
+build/
+
+# .env файл (зберігає ключі API, токени тощо)
+.env
+.env.local
+.env.production
+.env.development
