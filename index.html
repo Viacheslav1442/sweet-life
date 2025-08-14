@@ -10,25 +10,75 @@
 </head>
 
 <body>
-    <header>
-        <h1>Welcome to Sweet Life!</h1>
-        <button id="joinBtn">Приєднатись</button>
-    </header>
+    <main>
+        <p>Ласкаво просимо до світу смачної випічки! Приєднуйтесь до нашого закритого Telegram-каналу, де ми ділимося
+            ексклюзивними рецептами, секретами та порадами від майстрів.</p>
+
+        <div class="benefits">
+            <div class="benefit-block">
+                <div class="benefit-icon">🍰</div>
+                <h3>Навчись готувати смачну випічку</h3>
+                <p>Оволодій секретами ідеального тіста та незабутніх смаків від професіоналів.</p>
+            </div>
+            <div class="benefit-block">
+                <div class="benefit-icon">📖</div>
+                <h3>Отримай ексклюзивні рецепти</h3>
+                <p>Доступ до унікальних рецептів з покроковими інструкціями.</p>
+            </div>
+            <div class="benefit-block">
+                <div class="benefit-icon">👥</div>
+                <h3>Приєднайся до спільноти</h3>
+                <p>Обмінюйся досвідом з однодумцями у закритому каналі.</p>
+            </div>
+        </div>
+
+        <p>Сплатіть внесок через LiqPay та отримайте приватне запрошення до каналу!</p>
+        <button id="openModal">Приєднатися зараз</button>
+    </main>
+
 
     <!-- Модальне вікно -->
-    <div id="modal" class="modal hidden">
+    <div id="myModal" class="modal">
         <div class="modal-content">
-            <span id="closeModal" class="close">&times;</span>
-            <h2>Заповніть форму</h2>
-            <form id="joinForm">
-                <input type="text" name="firstName" placeholder="Імʼя" required />
-                <input type="text" name="lastName" placeholder="Прізвище" required />
-                <input type="tel" name="phone" placeholder="Телефон" required />
-                <input type="email" name="email" placeholder="Email" required />
-                <button type="submit">Оплатити</button>
+            <span class="close">&times;</span>
+            <h2>Реєстрація та оплата</h2>
+            <form id="registration-form">
+                <label for="firstName">Ім'я:</label>
+                <input type="text" id="firstName" required>
+
+                <label for="lastName">Прізвище:</label>
+                <input type="text" id="lastName" required>
+
+                <label for="phone">Номер телефону:</label>
+                <input type="tel" id="phone" required>
+
+                <button type="submit">Перейти до оплати</button>
             </form>
+            <div id="success-message">Оплата успішна! Ось ваше приватне запрошення: <a id="telegram-link" href="#"
+                    target="_blank">Приєднатися до каналу</a></div>
         </div>
     </div>
+    </div>
+    <form id="paymentForm">
+        <input type="text" id="firstName" placeholder="Ім'я" required />
+        <input type="text" id="lastName" placeholder="Прізвище" required />
+        <input type="tel" id="phone" placeholder="Телефон" required />
+        <button type="submit">Оплатити</button>
+    </form>
+
+    <script type="module">
+        import { initiatePayment } from './src/services/payment.js';
+
+        document.getElementById("paymentForm").onsubmit = function (event) {
+            event.preventDefault();
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const phone = document.getElementById("phone").value;
+
+            initiatePayment(firstName, lastName, phone);
+        };
+    </script>
+
 
     <script type="module" src="./src/main.js"></script>
 </body>
