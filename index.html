@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sweet Life</title>
-    <link rel="stylesheet" href="./src/styles/main.css" />
-    <link rel="stylesheet" href="./src/styles/modal.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Смачна Випічка</title>
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/modal.css">
 </head>
 
 <body>
@@ -36,9 +36,8 @@
         <button id="openModal">Приєднатися зараз</button>
     </main>
 
-
     <!-- Модальне вікно -->
-    <div id="myModal" class="modal">
+    <div id="myModal" class="modal hidden">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Реєстрація та оплата</h2>
@@ -54,31 +53,10 @@
 
                 <button type="submit">Перейти до оплати</button>
             </form>
-            <div id="success-message">Оплата успішна! Ось ваше приватне запрошення: <a id="telegram-link" href="#"
-                    target="_blank">Приєднатися до каналу</a></div>
+            <div id="success-message" class="hidden">Оплата успішна! Ось ваше приватне запрошення: <a id="telegram-link"
+                    href="#" target="_blank">Приєднатися до каналу</a></div>
         </div>
     </div>
-    </div>
-    <form id="paymentForm">
-        <input type="text" id="firstName" placeholder="Ім'я" required />
-        <input type="text" id="lastName" placeholder="Прізвище" required />
-        <input type="tel" id="phone" placeholder="Телефон" required />
-        <button type="submit">Оплатити</button>
-    </form>
-
-    <script type="module">
-        import { initiatePayment } from './src/services/payment.js';
-
-        document.getElementById("paymentForm").onsubmit = function (event) {
-            event.preventDefault();
-            const firstName = document.getElementById("firstName").value;
-            const lastName = document.getElementById("lastName").value;
-            const phone = document.getElementById("phone").value;
-
-            initiatePayment(firstName, lastName, phone);
-        };
-    </script>
-
 
     <script type="module" src="./src/main.js"></script>
 </body>
