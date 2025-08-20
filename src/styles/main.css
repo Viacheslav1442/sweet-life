@@ -4,7 +4,7 @@ body {
   background: linear-gradient(
     90deg,
     rgba(141, 110, 188, 1) 0%,
-    rgba(146, 146, 146, 1) 50%,
+    rgba(255, 255, 255, 1) 50%,
     rgba(206, 194, 234, 1) 100%
   );
   background-size: cover;
