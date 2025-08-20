@@ -1,221 +1,285 @@
- body {
-     font-family: 'Roboto', sans-serif;
-     background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-     background-size: cover;
-     color: #333;
-     margin: 0;
-     padding: 0;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     min-height: 100vh;
-     text-align: center;
- }
+body {
+  font-family: 'Roboto', sans-serif;
+  background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')
+    no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
 
- .overlay {
-     background: rgba(255, 255, 255, 0.85);
-     width: 100%;
-     min-height: 100vh;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
- }
+/* Container for the chef section */
+.chef-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff7f0;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
- header {
-     background: linear-gradient(90deg, #800080, #b666d2);
-     width: 100%;
-     padding: 20px;
-     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
- }
+/* Image styling */
+.chef-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 20px;
+}
 
- h1 {
-     margin: 0;
-     font-size: 2.8em;
-     color: #fff;
- }
+.chef-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
 
- main {
-     max-width: 900px;
-     padding: 20px;
- }
+/* Text styling */
+.chef-text {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
 
- p {
-     font-size: 1.2em;
-     line-height: 1.6;
-     color: #333;
- }
+.chef-text h2 {
+  font-size: 2rem;
+  color: #d81b60;
+  margin-bottom: 15px;
+}
 
- .benefits {
-     display: flex;
-     justify-content: space-around;
-     margin: 30px 0;
-     flex-wrap: wrap;
-     gap: 20px;
- }
+.chef-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
 
- .benefit-block {
-     background: #f3e5f5;
-     border-radius: 15px;
-     padding: 20px;
-     width: 28%;
-     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
-     position: relative;
-     overflow: hidden;
- }
+/* Responsive design */
+@media (max-width: 768px) {
+  .chef-container {
+    flex-direction: column;
+    text-align: center;
+  }
 
- .benefit-block:hover {
-     transform: translateY(-10px);
-     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
- }
+  .chef-image,
+  .chef-text {
+    max-width: 100%;
+  }
+}
 
- .benefit-block h3 {
-     color: #800080;
-     font-size: 1.4em;
-     margin-bottom: 10px;
- }
+.overlay {
+  background: rgba(255, 255, 255, 0.85);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
- .benefit-block p {
-     font-size: 1em;
-     color: #555;
- }
+header {
+  background: linear-gradient(90deg, #800080, #b666d2);
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
- .benefit-icon {
-     font-size: 2em;
-     color: #800080;
-     margin-bottom: 10px;
- }
+h1 {
+  margin: 0;
+  font-size: 2.8em;
+  color: #fff;
+}
 
- button {
-     background: #800080;
-     color: #fff;
-     border: none;
-     padding: 15px 30px;
-     font-size: 1.2em;
-     cursor: pointer;
-     border-radius: 25px;
-     transition: background 0.3s, transform 0.2s;
- }
+main {
+  max-width: 900px;
+  padding: 20px;
+}
 
- button:hover {
-     background: #660066;
-     transform: scale(1.05);
- }
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #333;
+}
 
- /* Модальное окно */
- .modal {
-     display: none;
-     position: fixed;
-     z-index: 1000;
-     left: 0;
-     top: 0;
-     width: 100%;
-     height: 100%;
-     background: rgba(0, 0, 0, 0.5);
-     animation: fadeIn 0.3s ease;
- }
+.benefits {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
- .modal-content {
-     background: #fff;
-     margin: 10% auto;
-     padding: 30px;
-     width: 90%;
-     max-width: 500px;
-     border-radius: 15px;
-     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-     position: relative;
-     animation: slideIn 0.3s ease;
- }
+.benefit-block {
+  background: #f3e5f5;
+  border-radius: 15px;
+  padding: 20px;
+  width: 28%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
 
- .close {
-     color: #800080;
-     float: right;
-     font-size: 28px;
-     font-weight: bold;
-     cursor: pointer;
- }
+.benefit-block:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
 
- .close:hover {
-     color: #660066;
- }
+.benefit-block h3 {
+  color: #800080;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
 
- form {
-     display: flex;
-     flex-direction: column;
-     gap: 10px;
- }
+.benefit-block p {
+  font-size: 1em;
+  color: #555;
+}
 
- label {
-     font-size: 1.1em;
-     color: #333;
-     text-align: left;
- }
+.benefit-icon {
+  font-size: 2em;
+  color: #800080;
+  margin-bottom: 10px;
+}
 
- input {
-     padding: 12px;
-     border: 1px solid #800080;
-     border-radius: 5px;
-     font-size: 1em;
-     background: #f3e5f5;
-     color: #333;
- }
+button {
+  background: #800080;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background 0.3s, transform 0.2s;
+}
 
- input:focus {
-     outline: none;
-     border-color: #660066;
-     box-shadow: 0 0 5px rgba(102, 0, 102, 0.5);
- }
+button:hover {
+  background: #660066;
+  transform: scale(1.05);
+}
 
- #success-message {
-     display: none;
-     color: #28a745;
-     font-size: 1.2em;
-     margin-top: 20px;
- }
+/* Модальное окно */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease;
+}
 
- #success-message a {
-     color: #800080;
-     text-decoration: none;
- }
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
 
- #success-message a:hover {
-     text-decoration: underline;
- }
+.close {
+  color: #800080;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
- @keyframes fadeIn {
-     from {
-         opacity: 0;
-     }
+.close:hover {
+  color: #660066;
+}
 
-     to {
-         opacity: 1;
-     }
- }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
- @keyframes slideIn {
-     from {
-         transform: translateY(-50px);
-         opacity: 0;
-     }
+label {
+  font-size: 1.1em;
+  color: #333;
+  text-align: left;
+}
 
-     to {
-         transform: translateY(0);
-         opacity: 1;
-     }
- }
+input {
+  padding: 12px;
+  border: 1px solid #800080;
+  border-radius: 5px;
+  font-size: 1em;
+  background: #f3e5f5;
+  color: #333;
+}
 
- @media (max-width: 768px) {
-     .benefit-block {
-         width: 80%;
-         margin: 10px auto;
-     }
+input:focus {
+  outline: none;
+  border-color: #660066;
+  box-shadow: 0 0 5px rgba(102, 0, 102, 0.5);
+}
 
-     h1 {
-         font-size: 2em;
-     }
+#success-message {
+  display: none;
+  color: #28a745;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
 
-     button {
-         padding: 12px 20px;
-         font-size: 1em;
-     }
- }
+#success-message a {
+  color: #800080;
+  text-decoration: none;
+}
+
+#success-message a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefit-block {
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+}
