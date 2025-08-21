@@ -1,6 +1,9 @@
 export default class ButtonJoin {
     constructor(selector) {
         this.button = document.querySelector(selector);
+        if (!this.button) {
+            console.error(`Елемент з селектором "${selector}" не знайдено`);
+        }
     }
 
     setLink(url) {

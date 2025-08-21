@@ -1,73 +1,56 @@
-import { openModal, closeModal, initModalCloseOnOutsideClick } from './components/Modal.js';
+import Modal from './components/Modal.js';
+import { handleFormSubmit } from './components/JoinForm.js';
 import { handlePaymentCallback } from './utils/paymentCallback.js';
-import { initiatePayment } from './services/payment.js';
+import ButtonJoin from './components/ButtonJoin.js';
 
-// Ініціалізація закриття модалки при кліку поза межами
-initModalCloseOnOutsideClick();
+// Ініціалізація модалки
+const modal = new Modal('myModal');
+modal.initCloseOnOutsideClick();
 
-// Обробник для кнопки "Приєднатися зараз"
-const openModalBtn = document.getElementById("openModal");
+// Обробник кнопки "Приєднатися зараз"
+const openModalBtn = document.getElementById('openModal');
 if (openModalBtn) {
-    // Видаляємо попередні обробники, щоб уникнути дублювання
-    openModalBtn.removeEventListener("click", handleOpenModal);
-    openModalBtn.addEventListener("click", handleOpenModal);
-    function handleOpenModal() {
+    openModalBtn.addEventListener('click', () => {
         console.log("Кнопка 'Приєднатися зараз' натиснута");
-        openModal();
-    }
+        modal.open();
+    });
 } else {
     console.error("Кнопка з id='openModal' не знайдена");
 }
 
-// Обробник для кнопки закриття
-const closeBtn = document.querySelector(".close");
+// Обробник кнопки закриття
+const closeBtn = document.querySelector('.close');
 if (closeBtn) {
-    // Видаляємо попередні обробники
-    closeBtn.removeEventListener("click", handleCloseModal);
-    closeBtn.addEventListener("click", handleCloseModal);
-    function handleCloseModal() {
+    closeBtn.addEventListener('click', () => {
         console.log("Кнопка закриття натиснута");
-        closeModal();
-    }
+        modal.close();
+    });
 } else {
     console.error("Елемент .close не знайдено");
 }
 
-// Обробка форми реєстрації
-const form = document.getElementById("registration-form");
+// Обробка форми
+const form = document.getElementById('registration-form');
 if (form) {
-    form.addEventListener("submit", async function (event) {
-        event.preventDefault();
-        console.log("Форма відправлена");
-
-        const firstName = document.getElementById("firstName").value;
-        const lastName = document.getElementById("lastName").value;
-        const phone = document.getElementById("phone").value;
-
-        try {
-            await initiatePayment(firstName, lastName, phone);
-            console.log("Оплата ініційована");
-        } catch (error) {
-            console.error("Помилка оплати:", error);
-            alert("Сталася помилка під час обробки.");
-        }
-    });
+    form.addEventListener('submit', handleFormSubmit);
 } else {
     console.error("Форма з id='registration-form' не знайдена");
 }
 
-// Обробка callback після оплати
-const successMessage = document.getElementById("success-message");
-const modal = document.getElementById("myModal");
-const telegramLink = document.getElementById("telegram-link");
+// Ініціалізація callback після оплати
+const paymentFormEl = document.getElementById('registration-form');
+const successMsgEl = document.getElementById('success-message');
+const modalEl = document.getElementById('myModal');
+const telegramBtnEl = document.getElementById('telegram-link');
 
-if (successMessage && modal && telegramLink && form) {
-    handlePaymentCallback({ form, successMessage, modal, telegramLink });
+if (paymentFormEl && successMsgEl && modalEl && telegramBtnEl) {
+    const joinBtnInstance = new ButtonJoin('#telegram-link');
+    handlePaymentCallback({ paymentFormEl, successMsgEl, modalEl, joinBtnInstance });
 } else {
-    console.error("Один або більше елементів для callback не знайдені:", {
-        form: !!form,
-        successMessage: !!successMessage,
-        modal: !!modal,
-        telegramLink: !!telegramLink
+    console.error('Один або більше елементів для callback не знайдено:', {
+        paymentFormEl: !!paymentFormEl,
+        successMsgEl: !!successMsgEl,
+        modalEl: !!modalEl,
+        telegramBtnEl: !!telegramBtnEl
     });
 }
