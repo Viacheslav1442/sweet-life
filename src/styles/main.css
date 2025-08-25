@@ -1,12 +1,10 @@
 body {
   font-family: 'Roboto', sans-serif;
   background: #8d6ebc;
-  background: linear-gradient(
-    90deg,
-    rgba(141, 110, 188, 1) 0%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(206, 194, 234, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(141, 110, 188, 1) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(206, 194, 234, 1) 100%);
   background-size: cover;
   color: #333;
   margin: 0;

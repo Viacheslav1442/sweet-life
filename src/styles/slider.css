@@ -1,0 +1,85 @@
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    /* Приховує слайди поза межами контейнера */
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    /* Гарантує, що слайдер займає повну ширину контейнера */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+    /* Кожен слайд займає 100% ширини контейнера */
+    width: 100%;
+    /* Явно задаємо ширину */
+    height: 300px;
+    /* Фіксована висота */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Зображення заповнює контейнер */
+    object-position: center;
+    display: block;
+    border-radius: 10px;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .slider-container {
+        max-width: 100%;
+    }
+
+    .slide {
+        height: 250px;
+        /* Менша висота для планшетів */
+    }
+
+    .arrow {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide {
+        height: 200px;
+        /* Менша висота для мобільних */
+    }
+
+    .arrow {
+        padding: 6px;
+        font-size: 14px;
+    }
+}

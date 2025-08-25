@@ -2,6 +2,7 @@ import Modal from './components/Modal.js';
 import { handleFormSubmit } from './components/JoinForm.js';
 import { handlePaymentCallback } from './utils/paymentCallback.js';
 import ButtonJoin from './components/ButtonJoin.js';
+import './components/Slider.js'
 
 // Ініціалізація модалки
 const modal = new Modal('myModal');
