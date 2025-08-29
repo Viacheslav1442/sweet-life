@@ -1,5 +1,5 @@
 body {
-  font-family: 'Asap', sans-serif;
+  font-family: 'Asap', sans-serif !important;
   font-weight: 400;
   font-style: normal;
   background: #8d6ebc;
@@ -20,7 +20,6 @@ body {
   text-align: center;
 }
 
-/* Container for the chef section */
 .chef-container {
   display: flex;
   flex-wrap: wrap;
@@ -34,7 +33,6 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Image styling */
 .chef-image {
   flex: 1;
   min-width: 300px;
@@ -49,12 +47,11 @@ body {
   object-fit: cover;
 }
 
-/* Text styling */
 .chef-text {
   flex: 1;
   min-width: 300px;
   padding: 20px;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Asap', sans-serif;
   color: #333;
 }
 
@@ -70,7 +67,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .chef-container {
     flex-direction: column;
@@ -135,6 +131,19 @@ p {
   overflow: hidden;
 }
 
+.benefit-block.napoleon-block {
+  background: rgba(
+    243,
+    229,
+    245,
+    0.8
+  ); /* Полупрозрачный фон для читаемости текста */
+  background-image: url('./src/img/4napoleon.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .benefit-block:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -173,7 +182,6 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Модальное окно */
 .modal {
   display: none;
   position: fixed;
@@ -257,7 +265,6 @@ input:focus {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -268,7 +275,6 @@ input:focus {
     transform: translateY(-50px);
     opacity: 0;
   }
-
   to {
     transform: translateY(0);
     opacity: 1;
