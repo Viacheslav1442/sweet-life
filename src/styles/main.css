@@ -151,14 +151,14 @@ p {
 }
 
 .benefit-block-3 {
-  background-image: url('../img/9red.jpg'); /* Плейсхолдер для третьего блока (измените на реальное имя файла) */
+  background-image: url('../img/9red.JPG'); /* Плейсхолдер для третьего блока (измените на реальное имя файла) */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .benefit-block-4 {
-  background-image: url('../img/11bird.jpg'); /* Плейсхолдер для четвертого блока (измените на реальное имя файла) */
+  background-image: url('../img/11bird.JPG'); /* Плейсхолдер для четвертого блока (измените на реальное имя файла) */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
