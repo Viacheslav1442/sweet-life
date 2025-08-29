@@ -33,7 +33,7 @@
   /* Зображення заповнює контейнер */
   object-position: center;
   display: block;
-  border-radius: 15px; /* Добавлено для слегка закругленных краев */
+  border-radius: 15px !important; /* Закругленные края с приоритетом */
 }
 
 .arrow {
@@ -61,6 +61,6 @@
 
 @media (max-width: 480px) {
   .slide {
-    height: 250px; /* Увеличено с 200px до 250px для мобильной версии */
+    height: 280px; /* Увеличено с 250px до 280px для мобильной версии */
   }
 }
