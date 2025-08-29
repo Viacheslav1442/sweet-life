@@ -1,36 +1,36 @@
-export function openModal() {
-    const modal = document.getElementById("myModal");
-    if (modal) {
-        modal.classList.remove("hidden");
-        console.log("Модалка відкрита");
-    } else {
-        console.error("Модалка з id='myModal' не знайдена");
-    }
-}
-
-export function closeModal() {
-    const modal = document.getElementById("myModal");
-    if (modal) {
-        modal.classList.add("hidden");
-        console.log("Модалка закрита");
-    } else {
-        console.error("Модалка з id='myModal' не знайдена");
-    }
-}
-
-export function initModalCloseOnOutsideClick() {
-    const modal = document.getElementById("myModal");
-    if (modal) {
-        // Видаляємо попередні обробники, щоб уникнути дублювання
-        window.removeEventListener("click", handleOutsideClick);
-        window.addEventListener("click", handleOutsideClick);
-        function handleOutsideClick(event) {
-            if (event.target === modal) {
-                closeModal();
-                console.log("Модалка закрита при кліку поза межами");
-            }
+export default class Modal {
+    constructor(modalId) {
+        this.modal = document.getElementById(modalId);
+        if (!this.modal) {
+            console.error(`Модалка з id='${modalId}' не знайдена`);
         }
-    } else {
-        console.error("Модалка з id='myModal' не знайдена");
+    }
+
+    open() {
+        if (this.modal) {
+            this.modal.classList.remove("hidden");
+            console.log("Модалка відкрита");
+        }
+    }
+
+    close() {
+        if (this.modal) {
+            this.modal.classList.add("hidden");
+            console.log("Модалка закрита");
+        }
+    }
+
+    initCloseOnOutsideClick() {
+        if (this.modal) {
+            window.removeEventListener("click", this.handleOutsideClick);
+            window.addEventListener("click", this.handleOutsideClick.bind(this));
+        }
+    }
+
+    handleOutsideClick(event) {
+        if (event.target === this.modal) {
+            this.close();
+            console.log("Модалка закрита при кліку поза межами");
+        }
     }
 }
