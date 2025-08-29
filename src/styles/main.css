@@ -129,7 +129,7 @@ p {
   ); /* Полупрозрачный фон для всех блоков с изображениями */
   border-radius: 15px;
   padding: 20px;
-  width: 28%;
+  width: 32%; /* Увеличено с 28% до 32% для ПК/планшетов */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -137,42 +137,42 @@ p {
 }
 
 .benefit-block-1 {
-  background-image: url('../img/4napoleon.jpg'); /* Путь для первого блока (измените при необходимости) */
+  background-image: url('../img/4napoleon.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .benefit-block-2 {
-  background-image: url('../img/6honey.jpg'); /* Плейсхолдер для второго блока (измените на реальное имя файла) */
+  background-image: url('../img/6honey.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .benefit-block-3 {
-  background-image: url('../img/9red.JPG'); /* Плейсхолдер для третьего блока (измените на реальное имя файла) */
+  background-image: url('../img/9red.JPG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .benefit-block-4 {
-  background-image: url('../img/11bird.JPG'); /* Плейсхолдер для четвертого блока (измените на реальное имя файла) */
+  background-image: url('../img/11bird.JPG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .benefit-block-5 {
-  background-image: url('../img/13girl.jpg'); /* Плейсхолдер для пятого блока (измените на реальное имя файла) */
+  background-image: url('../img/13girl.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .benefit-block-6 {
-  background-image: url('../img/15bonus.jpg'); /* Плейсхолдер для шестого блока (измените на реальное имя файла) */
+  background-image: url('../img/15bonus.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -317,7 +317,7 @@ input:focus {
 
 @media (max-width: 768px) {
   .benefit-block {
-    width: 80%;
+    width: 90%; /* Увеличено с 80% до 90% для мобильных */
     margin: 10px auto;
   }
 
