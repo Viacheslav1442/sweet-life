@@ -138,7 +138,7 @@ p {
     245,
     0.8
   ); /* Полупрозрачный фон для читаемости текста */
-  background-image: url('./src/img/4napoleon.jpg');
+  background-image: url('../img/4napoleon.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
