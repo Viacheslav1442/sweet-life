@@ -121,7 +121,12 @@ p {
 }
 
 .benefit-block {
-  background: #f3e5f5;
+  background: rgba(
+    243,
+    229,
+    245,
+    0.8
+  ); /* Полупрозрачный фон для всех блоков с изображениями */
   border-radius: 15px;
   padding: 20px;
   width: 28%;
@@ -131,14 +136,43 @@ p {
   overflow: hidden;
 }
 
-.benefit-block.napoleon-block {
-  background: rgba(
-    243,
-    229,
-    245,
-    0.8
-  ); /* Полупрозрачный фон для читаемости текста */
-  background-image: url('../img/4napoleon.jpg');
+.benefit-block-1 {
+  background-image: url('../img/4napoleon.jpg'); /* Путь для первого блока (измените при необходимости) */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.benefit-block-2 {
+  background-image: url('../img/6honey.jpg'); /* Плейсхолдер для второго блока (измените на реальное имя файла) */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.benefit-block-3 {
+  background-image: url('../img/9red.jpg'); /* Плейсхолдер для третьего блока (измените на реальное имя файла) */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.benefit-block-4 {
+  background-image: url('../img/11bird.jpg'); /* Плейсхолдер для четвертого блока (измените на реальное имя файла) */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.benefit-block-5 {
+  background-image: url('../img/13girl.jpg'); /* Плейсхолдер для пятого блока (измените на реальное имя файла) */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.benefit-block-6 {
+  background-image: url('../img/15bonus.jpg'); /* Плейсхолдер для шестого блока (измените на реальное имя файла) */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
