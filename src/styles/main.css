@@ -139,7 +139,7 @@ p {
     0.8
   ); /* Полупрозрачный фон для читаемости текста */
   background-image: url('../img/4napoleon.jpg');
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
