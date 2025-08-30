@@ -1,57 +1,39 @@
 import Modal from './components/Modal.js';
-import { handleFormSubmit } from './components/JoinForm.js';
 import { handlePaymentCallback } from './utils/paymentCallback.js';
-import ButtonJoin from './components/ButtonJoin.js';
-import './components/Slider.js'
+import { initJoinForm } from './components/JoinForm.js';
+import { initButtonJoin } from './components/ButtonJoin.js';
 
-// Ініціалізація модалки
-const modal = new Modal('myModal');
-modal.initCloseOnOutsideClick();
+console.log('main.js завантажено');
 
-// Обробник кнопки "Приєднатися зараз"
-const openModalBtn = document.getElementById('openModal');
-if (openModalBtn) {
-    openModalBtn.addEventListener('click', () => {
-        console.log("Кнопка 'Приєднатися зараз' натиснута");
-        modal.open();
-    });
-} else {
-    console.error("Кнопка з id='openModal' не знайдена");
-}
+// Дочекатися завантаження DOM
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM завантажено, ініціалізація компонентів');
 
-// Обробник кнопки закриття
-const closeBtn = document.querySelector('.close');
-if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-        console.log("Кнопка закриття натиснута");
-        modal.close();
-    });
-} else {
-    console.error("Елемент .close не знайдено");
-}
+    // Ініціалізація модалки
+    const modal = new Modal('myModal');
+    console.log('Модалка ініціалізована');
+    modal.initCloseOnOutsideClick();
 
-// Обробка форми
-const form = document.getElementById('registration-form');
-if (form) {
-    form.addEventListener('submit', handleFormSubmit);
-} else {
-    console.error("Форма з id='registration-form' не знайдена");
-}
+    // Ініціалізація кнопки та форми
+    console.log('Запуск initButtonJoin');
+    initButtonJoin(modal);
+    console.log('Запуск initJoinForm');
+    initJoinForm();
 
-// Ініціалізація callback після оплати
-const paymentFormEl = document.getElementById('registration-form');
-const successMsgEl = document.getElementById('success-message');
-const modalEl = document.getElementById('myModal');
-const telegramBtnEl = document.getElementById('telegram-link');
+    // Обробка callback після оплати
+    const form = document.getElementById("registration-form");
+    const successMessage = document.getElementById("success-message");
+    const telegramLink = document.getElementById("telegram-link");
 
-if (paymentFormEl && successMsgEl && modalEl && telegramBtnEl) {
-    const joinBtnInstance = new ButtonJoin('#telegram-link');
-    handlePaymentCallback({ paymentFormEl, successMsgEl, modalEl, joinBtnInstance });
-} else {
-    console.error('Один або більше елементів для callback не знайдено:', {
-        paymentFormEl: !!paymentFormEl,
-        successMsgEl: !!successMsgEl,
-        modalEl: !!modalEl,
-        telegramBtnEl: !!telegramBtnEl
-    });
-}
+    if (form && successMessage && modal.modal && telegramLink) {
+        console.log('Усі елементи для callback знайдені');
+        handlePaymentCallback({ form, successMessage, modal: modal.modal, telegramLink });
+    } else {
+        console.error("Один або більше елементів для callback не знайдені:", {
+            form: !!form,
+            successMessage: !!successMessage,
+            modal: !!modal.modal,
+            telegramLink: !!telegramLink
+        });
+    }
+});

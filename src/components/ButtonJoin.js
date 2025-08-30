@@ -1,28 +1,17 @@
-export default class ButtonJoin {
-    constructor(selector) {
-        this.button = document.querySelector(selector);
-        if (!this.button) {
-            console.error(`Елемент з селектором "${selector}" не знайдено`);
-        }
-    }
+import Modal from './Modal.js';
 
-    setLink(url) {
-        if (this.button) {
-            this.button.href = url;
-            this.button.textContent = 'Приєднатися до каналу';
-            this.show();
+export function initButtonJoin(modal) {
+    console.log('Ініціалізація ButtonJoin');
+    const openModalBtn = document.getElementById("openModal");
+    if (openModalBtn) {
+        console.log('Кнопка #openModal знайдена');
+        openModalBtn.removeEventListener("click", handleOpenModal);
+        openModalBtn.addEventListener("click", handleOpenModal);
+        function handleOpenModal() {
+            console.log("Кнопка 'Приєднатися зараз' натиснута");
+            modal.open();
         }
-    }
-
-    show() {
-        if (this.button) {
-            this.button.style.display = 'inline-block';
-        }
-    }
-
-    hide() {
-        if (this.button) {
-            this.button.style.display = 'none';
-        }
+    } else {
+        console.error("Кнопка з id='openModal' не знайдена");
     }
 }
