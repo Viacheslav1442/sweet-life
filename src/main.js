@@ -2,6 +2,7 @@ import Modal from './components/Modal.js';
 import { handlePaymentCallback } from './utils/paymentCallback.js';
 import { initJoinForm } from './components/JoinForm.js';
 import { initButtonJoin } from './components/ButtonJoin.js';
+import './components/Slider.js';
 
 console.log('main.js завантажено');
 
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = new Modal('myModal');
     console.log('Модалка ініціалізована');
     modal.initCloseOnOutsideClick();
+    modal.initCloseButton();
 
     // Ініціалізація кнопки та форми
     console.log('Запуск initButtonJoin');
