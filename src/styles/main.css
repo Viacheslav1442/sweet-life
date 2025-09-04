@@ -100,8 +100,8 @@ h1 {
 h1.chef-text {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  font-size: 2.2em;
-  border: 2px solid #800080;
+  font-size: 2em; /* Уменьшен размер шрифта для десктопной версии */
+  border: 1px solid #800080; /* Уменьшена ширина рамки */
   border-radius: 10px;
   padding: 15px;
   background: rgba(255, 255, 255, 0.9);
@@ -121,7 +121,7 @@ p {
 
 p.intro-text {
   color: #000;
-  font-size: 1.4em; /* Увеличенный размер шрифта для десктопной версии */
+  font-size: 1.4em;
 }
 
 p.intro-text .highlight {
@@ -246,12 +246,13 @@ p.welcome-text .bold {
 
   h1.chef-text {
     padding: 10px;
-    font-size: 1em;
+    font-size: 0.9em; /* Уменьшен размер шрифта для мобильной версии */
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+    border: 1px solid #800080; /* Уменьшена ширина рамки для мобильной версии */
   }
 
   p.intro-text {
-    font-size: 1.2em; /* Увеличенный размер шрифта для мобильной версии */
+    font-size: 1.2em;
   }
 }
