@@ -128,11 +128,11 @@ input:focus {
 
   input {
     font-size: 0.9em;
-    padding: 12px; /* Вернул исходные отступы */
+    padding: 12px;
     width: 100%;
     max-width: 100%;
-    height: 80px; /* Установлена фиксированная высота, в 2 раза больше стандартной (~40px) */
-    line-height: 1.5; /* Умеренная высота строки для читаемости */
+    height: 54px; /* Уменьшена высота с 80px до 54px (80 / 1.5) */
+    line-height: 1.4; /* Скорректирована высота строки для читаемости */
   }
 
   .main-button {
@@ -143,9 +143,9 @@ input:focus {
 
 @media (max-width: 414px) {
   input {
-    height: 80px !important; /* Принудительное применение высоты для iPhone 11/12 */
+    height: 54px !important; /* Принудительное применение уменьшенной высоты для iPhone 11/12 */
     font-size: 0.9em;
     padding: 12px;
-    line-height: 1.5;
+    line-height: 1.4;
   }
 }
