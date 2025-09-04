@@ -119,20 +119,21 @@ p {
   color: #2a009e;
 }
 
-p.intro-text .highlight {
-  color: #800080; /* Лиловый цвет для части текста */
+p.intro-text {
+  color: #000;
+  font-size: 1.4em; /* Увеличенный размер шрифта для десктопной версии */
 }
 
-p.intro-text {
-  color: #000; /* Чёрный цвет для остальной части текста */
+p.intro-text .highlight {
+  color: #800080;
 }
 
 p.welcome-text {
-  color: #000; /* Чёрный цвет для всего текста */
+  color: #000;
 }
 
 p.welcome-text .bold {
-  font-weight: 700; /* Жирный шрифт для выделенного текста */
+  font-weight: 700;
 }
 
 .benefits {
@@ -248,5 +249,9 @@ p.welcome-text .bold {
     font-size: 1em;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+  }
+
+  p.intro-text {
+    font-size: 1.2em; /* Увеличенный размер шрифта для мобильной версии */
   }
 }
