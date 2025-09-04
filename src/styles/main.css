@@ -2,7 +2,7 @@ body {
   font-family: 'Asap', sans-serif !important;
   font-weight: 400;
   font-style: normal;
-  background: #fff; /* Заменён градиент на однотонный белый фон */
+  background: #fff;
   color: #333;
   margin: 0;
   padding: 0;
@@ -98,6 +98,9 @@ h1 {
 }
 
 h1.chef-text {
+  font-family: 'Roboto', sans-serif; /* Новый шрифт */
+  font-weight: 700; /* Жирный текст */
+  font-size: 2.2em; /* Уменьшенный размер шрифта */
   border: 2px solid #800080;
   border-radius: 10px;
   padding: 15px;
@@ -226,6 +229,8 @@ p {
 
   h1.chef-text {
     padding: 10px;
-    font-size: 1.8em;
+    font-size: 1.4em; /* Уменьшенный размер шрифта для мобильной версии */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
   }
 }
