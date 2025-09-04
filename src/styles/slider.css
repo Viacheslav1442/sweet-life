@@ -34,7 +34,6 @@
   /* Зображення заповнює контейнер */
   object-position: center;
   display: block;
-  border-radius: 15px !important; /* Закругленные края с приоритетом */
 }
 
 .arrow {

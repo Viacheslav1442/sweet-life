@@ -87,7 +87,6 @@
 
       <div class="benefits">
         <div class="benefit-block benefit-block-1">
-          <div class="benefit-icon">1️⃣</div>
           <h3>Класичний Наполеон</h3>
           <p>
             Рецепт з відео інструкцією по приготуванню ніжного тіста, та
@@ -97,7 +96,6 @@
           </p>
         </div>
         <div class="benefit-block benefit-block-2">
-          <div class="benefit-icon">2️⃣</div>
           <h3>Медовик як в дитинстві</h3>
           <p>
             Ніжні, тонкі коржі, в поєднані з вершково-сметанковим кремом,
@@ -107,7 +105,6 @@
           </p>
         </div>
         <div class="benefit-block benefit-block-3">
-          <div class="benefit-icon">3️⃣</div>
           <h3>Торт «Червоний оксамит»</h3>
           <p>
             Ніжні, просочені вершкові коржі, з ноткою бархату, в яскравому
@@ -116,7 +113,6 @@
           </p>
         </div>
         <div class="benefit-block benefit-block-4">
-          <div class="benefit-icon">4️⃣</div>
           <h3>Торт «Пташине молоко»</h3>
           <p>
             Одвічна класика ще з часів 80-х років. Ніжний бісквіт і повітряне
@@ -125,7 +121,6 @@
           </p>
         </div>
         <div class="benefit-block benefit-block-5">
-          <div class="benefit-icon">5️⃣</div>
           <h3>Торт «Молочна дівчинка»</h3>
           <p>
             Витончена класика з найніжнішими коржами на згущеному молоці та
@@ -136,7 +131,6 @@
           </p>
         </div>
         <div class="benefit-block benefit-block-6">
-          <div class="benefit-icon">Бонус курсу</div>
           <h3>
             + 1 рецепт топового тортику Ферреро Роше з кокосовою родзинкою
           </h3>
@@ -155,17 +149,21 @@
       <button id="openModal">Приєднатися зараз</button>
     </main>
 
+    <!-- Модальне вікно -->
     <div id="myModal" class="modal hidden">
       <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Реєстрація та оплата</h2>
         <form id="registration-form">
-          <label for="firstName">Ім'я:</label>
-          <input type="text" id="firstName" required />
-          <label for="lastName">Прізвище:</label>
-          <input type="text" id="lastName" required />
+          <label for="telegram">Telegram логін (@username):</label>
+          <input type="text" id="telegram" placeholder="@username" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" required />
+
           <label for="phone">Номер телефону:</label>
           <input type="tel" id="phone" required />
+
           <button type="submit">Перейти до оплати</button>
         </form>
         <div id="success-message" class="hidden">
