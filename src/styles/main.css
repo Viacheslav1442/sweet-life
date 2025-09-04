@@ -229,7 +229,7 @@ p {
 
   h1.chef-text {
     padding: 10px;
-    font-size: 1.2em; /* Уменьшен размер шрифта на мобильной версии */
+    font-size: 1em; /* Ещё уменьшен размер шрифта на мобильной версии */
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
   }
