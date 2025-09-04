@@ -245,11 +245,11 @@ p.welcome-text .bold {
   }
 
   h1.chef-text {
-    padding: 10px;
+    padding: 10px 5px; /* Уменьшены боковые отступы для сужения рамки */
     font-size: 0.9em;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    border: 0.5px solid #800080; /* Уменьшена ширина рамки для мобильной версии */
+    border: 1.5px solid #800080; /* Увеличена толщина линии рамки */
   }
 
   p.intro-text {
