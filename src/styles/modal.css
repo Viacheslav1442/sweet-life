@@ -65,6 +65,8 @@ input {
   background: #f3e5f5;
   color: #333;
   transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 input:focus {
@@ -126,5 +128,13 @@ input:focus {
 
   input {
     font-size: 0.9em;
+    padding: 14px 20px; /* Увеличены отступы для визуального увеличения */
+    width: 100%; /* Поля занимают всю доступную ширину */
+    max-width: 100%; /* Убедимся, что поля не выходят за контейнер */
+  }
+
+  .main-button {
+    padding: 12px 20px;
+    font-size: 1em;
   }
 }
