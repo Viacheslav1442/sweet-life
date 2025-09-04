@@ -53,6 +53,14 @@ body {
   padding: 20px;
   font-family: 'Asap', sans-serif;
   color: #333;
+  border: 2px solid #800080; /* Добавлена рамка: 2px, сплошная, цвет #800080 */
+  border-radius: 10px; /* Закругленные углы для рамки */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Полупрозрачный белый фон для лучшей читаемости */
 }
 
 .chef-text h2 {
@@ -99,6 +107,14 @@ h1 {
   margin: 0;
   font-size: 2.8em;
   color: #fff;
+}
+
+h1.chef-text {
+  border: 2px solid #800080; /* Рамка для h1 с классом chef-text */
+  border-radius: 10px; /* Закругленные углы */
+  padding: 15px; /* Внутренние отступы для текста внутри рамки */
+  background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
+  display: inline-block; /* Чтобы рамка не растягивалась на всю ширину */
 }
 
 main {
@@ -218,5 +234,10 @@ p {
   .main-button {
     padding: 12px 20px;
     font-size: 1em;
+  }
+
+  h1.chef-text {
+    padding: 10px; /* Меньшие отступы для мобильной версии */
+    font-size: 1.8em; /* Уменьшен размер шрифта для лучшей читаемости */
   }
 }
