@@ -128,14 +128,24 @@ input:focus {
 
   input {
     font-size: 0.9em;
-    padding: 24px 12px; /* Увеличена высота полей за счет удвоенного вертикального padding (было 12px, стало 24px) */
+    padding: 12px; /* Вернул исходные отступы */
     width: 100%;
     max-width: 100%;
-    line-height: 2; /* Увеличена высота строки для большей визуальной высоты */
+    height: 80px; /* Установлена фиксированная высота, в 2 раза больше стандартной (~40px) */
+    line-height: 1.5; /* Умеренная высота строки для читаемости */
   }
 
   .main-button {
     padding: 12px 20px;
     font-size: 1em;
+  }
+}
+
+@media (max-width: 414px) {
+  input {
+    height: 80px !important; /* Принудительное применение высоты для iPhone 11/12 */
+    font-size: 0.9em;
+    padding: 12px;
+    line-height: 1.5;
   }
 }
