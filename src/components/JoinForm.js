@@ -1,57 +1,47 @@
 import { initiatePayment } from '../services/payment.js';
 
-export function validateForm({ firstName, lastName, phone, email }) {
-    // Перевірка, чи заповнені всі поля
-    if (!firstName || !lastName || !phone || !email) {
-        alert("Будь ласка, заповніть усі поля.");
-        return false;
-    }
+export function initJoinForm() {
+    const form = document.getElementById("registration-form");
+    if (form) {
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            console.log("Форма відправлена");
 
-    // Перевірка формату email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert("Будь ласка, введіть коректний email.");
-        return false;
-    }
+            const telegram = document.getElementById("telegram").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
 
-    // Перевірка формату телефону (наприклад, +380xxxxxxxxx)
-    const phoneRegex = /^\+?[1-9]\d{1,14}$/;
-    if (!phoneRegex.test(phone)) {
-        alert("Будь ласка, введіть коректний номер телефону.");
-        return false;
-    }
+            try {
+                const data = await initiatePayment(telegram, email, phone, 500);
+                if (data.success) {
+                    const liqpayForm = document.createElement('form');
+                    liqpayForm.method = 'POST';
+                    liqpayForm.action = 'https://www.liqpay.ua/api/3/checkout';
+                    liqpayForm.acceptCharset = 'utf-8';
 
-    // Перевірка довжини імен
-    if (firstName.length < 2 || lastName.length < 2) {
-        alert("Ім'я та прізвище повинні містити принаймні 2 символи.");
-        return false;
-    }
+                    const inputData = document.createElement('input');
+                    inputData.type = 'hidden';
+                    inputData.name = 'data';
+                    inputData.value = data.liqpayData;
+                    liqpayForm.appendChild(inputData);
 
-    return true;
-}
+                    const inputSignature = document.createElement('input');
+                    inputSignature.type = 'hidden';
+                    inputSignature.name = 'signature';
+                    inputSignature.value = data.liqpaySignature;
+                    liqpayForm.appendChild(inputSignature);
 
-export async function handleFormSubmit(event) {
-    event.preventDefault();
-
-    const form = event.target;
-    const formData = new FormData(form);
-
-    const userData = {
-        firstName: formData.get("firstName").trim(),
-        lastName: formData.get("lastName").trim(),
-        phone: formData.get("phone").trim(),
-        email: formData.get("email").trim(),
-    };
-
-    if (!validateForm(userData)) {
-        return;
-    }
-
-    try {
-        await initiatePayment(userData.firstName, userData.lastName, userData.phone);
-        console.log("Оплата ініційована");
-    } catch (error) {
-        console.error("Помилка оплати:", error);
-        alert("Сталася помилка під час обробки.");
+                    document.body.appendChild(liqpayForm);
+                    liqpayForm.submit();
+                } else {
+                    throw new Error('Помилка ініціації оплати');
+                }
+            } catch (error) {
+                console.error("Помилка оплати:", error);
+                alert("Сталася помилка під час обробки.");
+            }
+        });
+    } else {
+        console.error("Форма з id='registration-form' не знайдена");
     }
 }

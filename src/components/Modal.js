@@ -33,4 +33,13 @@ export default class Modal {
             console.log("Модалка закрита при кліку поза межами");
         }
     }
+
+    // --- Додаємо нову функцію для хрестика ---
+    initCloseButton() {
+        if (!this.modal) return;
+        const closeBtn = this.modal.querySelector(".close");
+        if (closeBtn) {
+            closeBtn.addEventListener("click", () => this.close());
+        }
+    }
 }
