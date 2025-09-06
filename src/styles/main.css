@@ -71,8 +71,8 @@ body {
 
   .chef-image {
     max-width: 100%;
-    padding: 5px 10px 20px 10px;
-    min-height: 450px; /* Синхронизировано с высотой слайдера */
+    padding: 0px 10px 5px 10px; /* Уменьшено расстояние сверху и снизу */
+    min-height: 450px;
   }
 
   .chef-image,
@@ -82,6 +82,8 @@ body {
 
   .slider-container {
     height: 450px;
+    width: 100vw; /* Полная ширина экрана */
+    margin-left: -10px; /* Компенсация отступов .chef-image */
   }
 }
 
