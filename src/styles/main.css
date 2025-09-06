@@ -67,11 +67,13 @@ body {
   .chef-container {
     flex-direction: column;
     text-align: center;
+    margin: 10px auto; /* Уменьшено с 40px до 10px */
+    padding: 10px; /* Уменьшено с 20px до 10px для минимизации внутреннего пространства */
   }
 
   .chef-image {
     max-width: 100%;
-    padding: 0px 10px 5px 10px; /* Уменьшено расстояние сверху и снизу */
+    padding: 0px 10px 5px 10px; /* Сохранено минимальное расстояние сверху */
     min-height: 450px;
   }
 
