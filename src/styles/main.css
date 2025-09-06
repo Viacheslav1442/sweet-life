@@ -281,20 +281,105 @@ p.welcome-text .bold {
     margin-bottom: 20px;
   }
 
-  .benefit-block h3 {
+  .benefit-block-1 h3 {
     font-family: 'Playfair Display', serif;
     font-weight: bold;
-    font-size: 1.68em; /* Увеличено с 1.4em на 20% */
-    color: #ffffff; /* Светлый текст для контраста */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Тень для читаемости */
+    font-size: 1.68em;
+    color: #000000;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
     margin-bottom: 10px;
   }
 
-  .benefit-block p {
+  .benefit-block-1 p {
     font-family: 'Playfair Display', serif;
     font-weight: bold;
-    font-size: 1.2em; /* Увеличено с 1em на 20% */
-    color: #ffffff; /* Светлый текст для контраста */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Тень для читаемости */
+    font-size: 1.2em;
+    color: #000000;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+  }
+
+  .benefit-block-2 h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.68em;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+  }
+
+  .benefit-block-2 p {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .benefit-block-3 h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.68em;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+  }
+
+  .benefit-block-3 p {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .benefit-block-4 h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.68em;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+  }
+
+  .benefit-block-4 p {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .benefit-block-5 h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.68em;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+  }
+
+  .benefit-block-5 p {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .benefit-block-6 h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.68em;
+    color: #000000;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+  }
+
+  .benefit-block-6 p {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #000000;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
   }
 }
