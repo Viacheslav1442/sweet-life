@@ -56,18 +56,20 @@
   }
 
   .slide-image {
-    object-fit: contain; /* Сохраняет пропорции изображения */
-    height: 100%; /* Использует всю высоту .slide */
+    object-fit: cover; /* Заполняет контейнер, обрезая края */
+    max-height: 450px; /* Ограничивает высоту изображения */
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .slide {
-    height: 450px; /* Увеличена высота для меньших экранов */
+    height: 450px;
   }
 
   .slide-image {
-    object-fit: contain;
-    height: 100%;
+    object-fit: cover;
+    max-height: 450px;
+    width: 100%;
   }
 }
