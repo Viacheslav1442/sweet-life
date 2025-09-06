@@ -254,9 +254,14 @@ p.welcome-text .bold {
     font-weight: 700;
     border: 1.5px solid #800080;
     margin-bottom: 20px;
-    max-width: 80%; /* Ограничение ширины на мобильной версии */
-    margin-left: auto; /* Центрирование */
-    margin-right: auto; /* Центрирование */
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(
+      135deg,
+      #b666d2,
+      #f3e5f5
+    ); /* Добавлен градиентный фон */
   }
 
   p.intro-text {
