@@ -106,7 +106,7 @@ h1.chef-text {
   padding: 15px;
   background: rgba(255, 255, 255, 0.9);
   display: inline-block;
-  margin-bottom: 20px; /* Добавлен отступ */
+  margin-bottom: 20px;
 }
 
 main {
@@ -123,7 +123,7 @@ p {
 p.intro-text {
   color: #000;
   font-size: 1.4em;
-  margin-bottom: 20px; /* Добавлен отступ */
+  margin-bottom: 20px;
 }
 
 p.intro-text .highlight {
@@ -132,7 +132,7 @@ p.intro-text .highlight {
 
 p.welcome-text {
   color: #000;
-  margin-bottom: 20px; /* Добавлен отступ */
+  margin-bottom: 20px;
 }
 
 p.welcome-text .bold {
@@ -248,16 +248,19 @@ p.welcome-text .bold {
   }
 
   h1.chef-text {
-    padding: 10px 5px; /* Уменьшены боковые отступы для сужения рамки */
+    padding: 10px 5px;
     font-size: 0.9em;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    border: 1.5px solid #800080; /* Увеличена толщина линии рамки */
-    margin-bottom: 20px; /* Добавлен отступ */
+    border: 1.5px solid #800080;
+    margin-bottom: 20px;
+    max-width: 80%; /* Ограничение ширины на мобильной версии */
+    margin-left: auto; /* Центрирование */
+    margin-right: auto; /* Центрирование */
   }
 
   p.intro-text {
     font-size: 1.2em;
-    margin-bottom: 20px; /* Добавлен отступ */
+    margin-bottom: 20px;
   }
 }
