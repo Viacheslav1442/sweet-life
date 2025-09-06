@@ -67,8 +67,8 @@ body {
   .chef-container {
     flex-direction: column;
     text-align: center;
-    margin: 10px auto; /* Уменьшено с 40px до 10px */
-    padding: 10px; /* Уменьшено с 20px до 10px для минимизации внутреннего пространства */
+    margin: 0px auto; /* Уменьшено с 10px до 0px */
+    padding: 10px; /* Сохранено минимальное внутреннее пространство */
   }
 
   .chef-image {
@@ -101,7 +101,7 @@ body {
 header {
   background: linear-gradient(90deg, #800080, #b666d2);
   width: 100%;
-  padding: 20px;
+  padding: 10px; /* Уменьшено с 20px до 10px для минимизации промежутка */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
