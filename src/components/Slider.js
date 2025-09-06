@@ -58,7 +58,8 @@ window.addEventListener('load', () => {
       const naturalWidth = img.naturalWidth;
       const naturalHeight = img.naturalHeight;
       const containerWidth = slider.clientWidth;
-      const scaledHeight = (naturalHeight / naturalWidth) * containerWidth;
+      const scaledHeight =
+        (naturalHeight / naturalWidth) * containerWidth * 1.5; // Увеличение в 1.5 раза
       if (scaledHeight > maxHeight) {
         maxHeight = scaledHeight;
       }
@@ -79,7 +80,8 @@ window.addEventListener('resize', () => {
       const naturalWidth = img.naturalWidth;
       const naturalHeight = img.naturalHeight;
       const containerWidth = slider.clientWidth;
-      const scaledHeight = (naturalHeight / naturalWidth) * containerWidth;
+      const scaledHeight =
+        (naturalHeight / naturalWidth) * containerWidth * 1.5; // Увеличение в 1.5 раза
       if (scaledHeight > maxHeight) {
         maxHeight = scaledHeight;
       }

@@ -46,19 +46,22 @@
   .slider-container {
     max-width: 100%;
     margin: 0;
+    height: auto; /* Адаптация под высоту изображений */
   }
 
   .slide {
-    height: auto;
+    height: auto; /* Адаптация под высоту изображений */
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .slide-image {
-    height: auto;
-    width: 100%;
     object-fit: contain;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3; /* Унифицирует пропорции */
+    max-height: 450px; /* Ограничивает высоту */
   }
 }
 
@@ -68,8 +71,10 @@
   }
 
   .slide-image {
-    height: auto;
-    width: 100%;
     object-fit: contain;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    max-height: 450px;
   }
 }
