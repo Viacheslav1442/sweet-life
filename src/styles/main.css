@@ -126,6 +126,10 @@ p.intro-text {
   margin-bottom: 20px; /* Добавлен отступ */
 }
 
+p.intro-text .highlight {
+  color: #800080;
+}
+
 p.welcome-text {
   color: #000;
   margin-bottom: 20px; /* Добавлен отступ */
@@ -249,11 +253,11 @@ p.welcome-text .bold {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     border: 1.5px solid #800080; /* Увеличена толщина линии рамки */
-    margin-bottom: 20px; /* Добавлен отступ для мобильной версии */
+    margin-bottom: 20px; /* Добавлен отступ */
   }
 
   p.intro-text {
     font-size: 1.2em;
-    margin-bottom: 20px; /* Добавлен отступ для мобильной версии */
+    margin-bottom: 20px; /* Добавлен отступ */
   }
 }
