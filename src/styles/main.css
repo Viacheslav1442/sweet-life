@@ -67,13 +67,13 @@ body {
   .chef-container {
     flex-direction: column;
     text-align: center;
-    margin: 0px auto; /* Уменьшено с 10px до 0px */
-    padding: 10px; /* Сохранено минимальное внутреннее пространство */
+    margin: 0px auto;
+    padding: 10px;
   }
 
   .chef-image {
     max-width: 100%;
-    padding: 0px 10px 5px 10px; /* Сохранено минимальное расстояние сверху */
+    padding: 0px 10px 5px 10px;
     min-height: 450px;
   }
 
@@ -84,8 +84,8 @@ body {
 
   .slider-container {
     height: 450px;
-    width: 100vw; /* Полная ширина экрана */
-    margin-left: -10px; /* Компенсация отступов .chef-image */
+    width: 100vw;
+    margin-left: -10px;
   }
 }
 
@@ -101,7 +101,7 @@ body {
 header {
   background: linear-gradient(90deg, #800080, #b666d2);
   width: 100%;
-  padding: 10px; /* Уменьшено с 20px до 10px для минимизации промежутка */
+  padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -247,6 +247,8 @@ p.welcome-text .bold {
 }
 
 @media (max-width: 768px) {
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
   .benefit-block {
     width: 90%;
     margin: 10px auto;
@@ -277,5 +279,22 @@ p.welcome-text .bold {
   p.intro-text {
     font-size: 1.2em;
     margin-bottom: 20px;
+  }
+
+  .benefit-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.68em; /* Увеличено с 1.4em на 20% */
+    color: #ffffff; /* Светлый текст для контраста */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Тень для читаемости */
+    margin-bottom: 10px;
+  }
+
+  .benefit-block p {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.2em; /* Увеличено с 1em на 20% */
+    color: #ffffff; /* Светлый текст для контраста */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Тень для читаемости */
   }
 }
