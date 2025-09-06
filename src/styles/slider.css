@@ -45,16 +45,31 @@
 @media (max-width: 768px) {
   .slider-container {
     max-width: 100%;
-    margin: 0; /* Убран margin для максимальной ширины */
+    margin: 0;
   }
 
   .slide {
-    height: 400px; /* Увеличена высота слайдера */
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slide-image {
+    object-fit: contain; /* Сохраняет пропорции изображения */
+    max-height: 380px; /* Ограничивает высоту изображения */
+    aspect-ratio: 4/3; /* Фиксированное соотношение сторон */
   }
 }
 
 @media (max-width: 480px) {
   .slide {
-    height: 400px; /* Увеличена высота для меньших экранов */
+    height: 400px;
+  }
+
+  .slide-image {
+    object-fit: contain;
+    max-height: 380px;
+    aspect-ratio: 4/3;
   }
 }
