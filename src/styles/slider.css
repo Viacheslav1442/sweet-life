@@ -46,35 +46,31 @@
   .slider-container {
     max-width: 100%;
     margin: 0;
-    height: auto; /* Адаптация под высоту изображений */
+    height: 450px; /* Фиксированная высота */
   }
 
   .slide {
-    height: auto; /* Адаптация под высоту изображений */
+    height: 450px; /* Фиксированная высота */
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .slide-image {
-    object-fit: contain;
+    object-fit: cover; /* Заполняет контейнер, обрезая края */
     width: 100%;
-    height: auto;
-    aspect-ratio: 4/3; /* Унифицирует пропорции */
     max-height: 450px; /* Ограничивает высоту */
   }
 }
 
 @media (max-width: 480px) {
   .slide {
-    height: auto;
+    height: 450px;
   }
 
   .slide-image {
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
-    height: auto;
-    aspect-ratio: 4/3;
     max-height: 450px;
   }
 }
