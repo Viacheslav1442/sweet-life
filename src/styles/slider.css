@@ -4,24 +4,19 @@
   max-width: 400px;
   margin: 0 auto;
   overflow: hidden;
-  /* Приховує слайди поза межами контейнера */
-  border-radius: 15px; /* Добавляем закругленные углы контейнеру */
+  border-radius: 15px;
 }
 
 .slider {
   display: flex;
   width: 100%;
-  /* Гарантує, що слайдер займає повну ширину контейнера */
   transition: transform 0.5s ease-in-out;
 }
 
 .slide {
   flex: 0 0 100%;
-  /* Кожен слайд займає 100% ширини контейнера */
   width: 100%;
-  /* Явно задаємо ширину */
   height: 300px;
-  /* Фіксована висота */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,36 +26,35 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Зображення заповнює контейнер */
   object-position: center;
   display: block;
 }
 
 .arrow {
-  display: none; /* Скрываем стрелки */
+  display: none;
 }
 
 .arrow-left {
-  display: none; /* Скрываем левую стрелку */
+  display: none;
 }
 
 .arrow-right {
-  display: none; /* Скрываем правую стрелку */
+  display: none;
 }
 
 @media (max-width: 768px) {
   .slider-container {
     max-width: 100%;
+    margin: 0; /* Убран margin для максимальной ширины */
   }
 
   .slide {
-    height: 250px;
-    /* Менша висота для планшетів */
+    height: 400px; /* Увеличена высота слайдера */
   }
 }
 
 @media (max-width: 480px) {
   .slide {
-    height: 330px; /* Увеличено с 250px до 280px для мобильной версии */
+    height: 400px; /* Увеличена высота для меньших экранов */
   }
 }
