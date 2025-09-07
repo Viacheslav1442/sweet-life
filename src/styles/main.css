@@ -223,7 +223,7 @@ p.welcome-text .bold {
   font-family: 'Playfair Display', serif;
   font-weight: bold;
   font-size: 1.4em;
-  color: #800080; /* Фиолетовый цвет */
+  color: #00008b; /* Темно-синий цвет для заголовков */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
 }
@@ -232,7 +232,7 @@ p.welcome-text .bold {
   font-family: 'Playfair Display', serif;
   font-weight: 600; /* Полужирный шрифт */
   font-size: 1em;
-  color: #800080; /* Фиолетовый цвет */
+  color: #800080; /* Фиолетовый цвет для параграфов */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
