@@ -220,14 +220,20 @@ p.welcome-text .bold {
 }
 
 .benefit-block h3 {
-  color: #800080;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
   font-size: 1.4em;
+  color: #000;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
 }
 
 .benefit-block p {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600; /* Полужирный шрифт */
   font-size: 1em;
-  color: #555;
+  color: #000;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .main-button {
@@ -279,107 +285,5 @@ p.welcome-text .bold {
   p.intro-text {
     font-size: 1.2em;
     margin-bottom: 20px;
-  }
-
-  .benefit-block-1 h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.68em;
-    color: #d4a017;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-  }
-
-  .benefit-block-1 p {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #d4a017;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  }
-
-  .benefit-block-2 h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.68em;
-    color: #add8e6;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-  }
-
-  .benefit-block-2 p {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #add8e6;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  }
-
-  .benefit-block-3 h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.68em;
-    color: #fff5e1;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-  }
-
-  .benefit-block-3 p {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #fff5e1;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  }
-
-  .benefit-block-4 h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.68em;
-    color: #6b705c;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-  }
-
-  .benefit-block-4 p {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #6b705c;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  }
-
-  .benefit-block-5 h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.68em;
-    color: #ffa07a;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-  }
-
-  .benefit-block-5 p {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #ffa07a;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  }
-
-  .benefit-block-6 h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.68em;
-    color: #1e3a8a;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-  }
-
-  .benefit-block-6 p {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #1e3a8a;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   }
 }
