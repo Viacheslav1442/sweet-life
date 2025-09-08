@@ -178,6 +178,74 @@ main p.payment-text {
   margin: 20px 0;
 }
 
+.course-list {
+  color: #3c2f2f; /* Темно-коричневый цвет для списка */
+  text-align: left; /* Выравнивание по левой стороне */
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin: 10px 0;
+  padding-left: 40px; /* Отступ для списка */
+  list-style-type: decimal; /* Нумерация 1, 2, 3, 4 */
+}
+
+@media (max-width: 768px) {
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+  .benefit-block {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .main-button {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+
+  h1.chef-text {
+    padding: 10px 5px;
+    font-size: 0.9em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    border: 1.5px solid #800080;
+    margin-bottom: 20px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p.intro-text {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+
+  .course-info {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #3c2f2f; /* Темно-коричневый для мобильной версии */
+  }
+
+  main p.payment-text {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #3c2f2f !important; /* Темно-коричневый для мобильной версии */
+  }
+
+  .course-list {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 10px 0;
+    padding-left: 30px; /* Меньший отступ для мобильной версии */
+    color: #3c2f2f; /* Темно-коричневый для мобильной версии */
+    text-align: left; /* Выравнивание по левой стороне */
+    list-style-type: decimal; /* Нумерация 1, 2, 3, 4 */
+  }
+}
+
 .benefits {
   display: flex;
   justify-content: space-around;
@@ -275,52 +343,4 @@ main p.payment-text {
 .main-button:hover {
   background: #660066;
   transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-
-  .benefit-block {
-    width: 90%;
-    margin: 10px auto;
-  }
-
-  h1 {
-    font-size: 2em;
-  }
-
-  .main-button {
-    padding: 12px 20px;
-    font-size: 1em;
-  }
-
-  h1.chef-text {
-    padding: 10px 5px;
-    font-size: 0.9em;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    border: 1.5px solid #800080;
-    margin-bottom: 20px;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  p.intro-text {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-  }
-
-  .course-info {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin: 10px 0;
-    color: #3c2f2f; /* Темно-коричневый для мобильной версии */
-  }
-
-  main p.payment-text {
-    font-size: 1em;
-    margin-bottom: 15px;
-    color: #3c2f2f !important; /* Темно-коричневый для мобильной версии */
-  }
 }
