@@ -129,8 +129,8 @@ body {
 
   h1.chef-text {
     padding: 10px 5px;
-    font-size: 0.7em !important;
-    /* Уменьшаем размер шрифта с высокой специфичностью */
+    font-size: 1em !important;
+    /* Увеличиваем размер шрифта для заполнения рамки */
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     border: 1.5px solid #800080;
@@ -139,7 +139,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     line-height: 1.4;
-    /* Улучшаем читаемость для меньшего шрифта */
+    /* Улучшаем читаемость */
   }
 
   p.intro-text {
