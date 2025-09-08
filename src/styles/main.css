@@ -53,7 +53,7 @@ body {
 
 .chef-text h2 {
   font-size: 2rem;
-  color: #d81b60;
+  color: #800080; /* Фиолетовый цвет, как в .highlight */
   margin-bottom: 15px;
 }
 
@@ -61,6 +61,7 @@ body {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 15px;
+  color: #3c2f2f; /* Темно-коричневый цвет для текста параграфов */
 }
 
 @media (max-width: 768px) {
@@ -118,9 +119,14 @@ h1.chef-text {
   border: 1px solid #800080;
   border-radius: 10px;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(
+    135deg,
+    #b666d2,
+    #f3e5f5
+  ); /* Градиент для всех версий */
   display: inline-block;
   margin-bottom: 20px;
+  color: #3c2f2f; /* Темно-коричневый цвет, как в .benefit-block h3 */
 }
 
 main {
@@ -141,7 +147,11 @@ p.intro-text {
 }
 
 p.intro-text .highlight {
-  color: #800080;
+  color: #800080; /* Фиолетовый цвет для .highlight */
+}
+
+p.intro-text .highlight-brown {
+  color: #3c2f2f; /* Темно-коричневый цвет для "ЦЕ ЛЕГКО..." */
 }
 
 p.welcome-text {
@@ -151,6 +161,21 @@ p.welcome-text {
 
 p.welcome-text .bold {
   font-weight: 700;
+  color: #3c2f2f; /* Темно-коричневый цвет для "Приєднуйтесь..." */
+}
+
+main p.payment-text {
+  color: #3c2f2f !important; /* Темно-коричневый цвет для "Сплатіть внесок..." */
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.course-info {
+  color: #3c2f2f; /* Темно-коричневый цвет для текста "Що ви отримуєте в курсі..." */
+  font-size: 1.5em;
+  line-height: 1.6;
+  margin: 20px 0;
 }
 
 .benefits {
@@ -279,11 +304,23 @@ p.welcome-text .bold {
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
-    background: linear-gradient(135deg, #b666d2, #f3e5f5);
   }
 
   p.intro-text {
     font-size: 1.2em;
     margin-bottom: 20px;
+  }
+
+  .course-info {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #3c2f2f; /* Темно-коричневый для мобильной версии */
+  }
+
+  main p.payment-text {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #3c2f2f !important; /* Темно-коричневый для мобильной версии */
   }
 }
