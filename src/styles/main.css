@@ -101,12 +101,8 @@ body {
 }
 
 .benefit-block {
-  background: rgba(
-    243,
-    229,
-    245,
-    0.9
-  ); /* Увеличена непрозрачность для читаемости */
+  background: rgba(243, 229, 245, 0.9); /* Оригінальний фон для читабельності */
+  border: 2px solid #3c2f2f; /* Додано темну обводку (темно-коричневий) */
   border-radius: 15px;
   padding: 20px;
   width: 32%;
@@ -164,20 +160,48 @@ body {
 }
 
 .benefit-block h3 {
-  font-family: 'Playfair Display', serif; /* Оставлен текущий шрифт */
+  font-family: 'Playfair Display', serif;
   font-weight: bold;
-  font-size: 1.8em; /* Увеличенный размер */
-  color: #ab47bc; /* Нежно-фиолетовый, слегка яркий */
+  font-size: 2em; /* Збільшено з 1.8em */
+  color: #9c27b0; /* Яскравіший пурпурний (було #ab47bc) */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
 }
 
 .benefit-block p {
-  font-family: 'Playfair Display', serif; /* Оставлен текущий шрифт */
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
-  font-size: 1.1em; /* Слегка увеличен */
-  color: #2a1e1e; /* Темно-коричневый, близкий к черному */
+  font-size: 1.3em; /* Збільшено з 1.1em */
+  color: #2a1e1e;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Мобільна версія */
+@media (max-width: 768px) {
+  .benefit-block {
+    width: 100% !important;
+    margin: 10px 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid #3c2f2f; /* Темна обводка для мобільних */
+  }
+
+  .benefit-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.8em; /* Збільшено з 1.6em для мобільних */
+    color: #9c27b0; /* Яскравіший пурпурний */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+  }
+
+  .benefit-block p {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.2em; /* Збільшено з 1em для мобільних */
+    color: #2a1e1e;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .main-button {
