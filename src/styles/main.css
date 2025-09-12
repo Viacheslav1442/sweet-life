@@ -115,7 +115,7 @@ body {
   }
 
   main {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: transparent; /* Убираем полупрозрачный фон */
     max-width: 900px;
     padding: 20px;
     border-radius: 15px;
@@ -183,7 +183,7 @@ body {
 }
 
 .overlay {
-  background: rgba(255, 255, 255, 0.85);
+  background: transparent; /* Убираем полупрозрачный фон */
   width: 100%;
   min-height: 100vh;
   display: flex;
