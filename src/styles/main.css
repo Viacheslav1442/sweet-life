@@ -70,20 +70,20 @@ body {
 .course-info {
   font-family: 'Dancing Script', cursive; /* Рукописный шрифт */
   font-weight: 700; /* Жирный для заголовка */
-  font-size: 1.8em; /* Чуть увеличен для выразительности */
-  line-height: 1.6;
+  font-size: 2.5em; /* Сильно большой шрифт */
+  line-height: 1.4; /* Уменьшен для баланса */
   margin: 20px 0;
   color: #6a1b9a; /* Выразительный лиловый */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Легкая тень для читаемости */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Усиленная тень для читаемости */
 }
 
 .course-list {
   font-family: 'Dancing Script', cursive; /* Рукописный шрифт */
   font-weight: 600; /* Полужирный для списка */
-  font-size: 1.3em; /* Чуть увеличен для читаемости */
-  line-height: 1.6;
+  font-size: 1.6em; /* Большой шрифт */
+  line-height: 1.5; /* Увеличен для читаемости */
   margin: 10px 0;
-  padding-left: 40px;
+  padding-left: 50px; /* Увеличен отступ для нумерации */
   color: #6a1b9a; /* Выразительный лиловый */
   text-align: left;
   list-style-type: decimal;
@@ -340,20 +340,20 @@ main p.payment-text {
   .course-info {
     font-family: 'Dancing Script', cursive; /* Рукописный шрифт */
     font-weight: 700; /* Жирный для заголовка */
-    font-size: 1.4em; /* Чуть увеличен для мобильных */
-    line-height: 1.6;
+    font-size: 2em; /* Сильно большой шрифт для мобильных */
+    line-height: 1.4;
     margin: 10px 0;
     color: #6a1b9a; /* Выразительный лиловый */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Усиленная тень */
   }
 
   .course-list {
     font-family: 'Dancing Script', cursive; /* Рукописный шрифт */
     font-weight: 600; /* Полужирный для списка */
-    font-size: 1.1em; /* Чуть увеличен для читаемости */
-    line-height: 1.6;
+    font-size: 1.3em; /* Большой шрифт для мобильных */
+    line-height: 1.5;
     margin: 10px 0;
-    padding-left: 30px;
+    padding-left: 40px; /* Увеличен отступ */
     color: #6a1b9a; /* Выразительный лиловый */
     text-align: left;
     list-style-type: decimal;
