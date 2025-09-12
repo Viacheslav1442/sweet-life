@@ -1,3 +1,7 @@
+/* Переміщено @import на початок файлу */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+
 body {
   font-family: 'Asap', sans-serif !important;
   font-weight: 400;
@@ -101,8 +105,8 @@ body {
 }
 
 .benefit-block {
-  background: rgba(243, 229, 245, 0.9); /* Оригінальний фон для читабельності */
-  border: 2px solid #3c2f2f; /* Темна обводка з попередньої версії */
+  background: rgba(243, 229, 245, 0.9); /* Оригінальний фон */
+  border: 2px solid #3c2f2f; /* Темна обводка */
   border-radius: 15px;
   padding: 20px;
   width: 32%;
@@ -162,8 +166,8 @@ body {
 .benefit-block h3 {
   font-family: 'Playfair Display', serif;
   font-weight: bold;
-  font-size: 2.2em; /* Збільшено з 2em */
-  color: #00b7ff; /* Яскравий рожево-пурпурний (було #9c27b0) */
+  font-size: 2.4em; /* Збільшено з 2.2em */
+  color: #c300ff; /* Яскравий рожево-пурпурний */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
 }
@@ -171,37 +175,9 @@ body {
 .benefit-block p {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
-  font-size: 1.5em; /* Збільшено з 1.3em */
+  font-size: 1.5em; /* Залишено як у попередній версії */
   color: #2a1e1e;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-/* Мобільна версія */
-@media (max-width: 768px) {
-  .benefit-block {
-    width: 100% !important;
-    margin: 10px 0;
-    padding: 20px;
-    box-sizing: border-box;
-    border: 2px solid #3c2f2f; /* Темна обводка */
-  }
-
-  .benefit-block h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 2em; /* Збільшено з 1.8em */
-    color: #00b7ff; /* Яскравий рожево-пурпурний */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-  }
-
-  .benefit-block p {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    font-size: 1.4em; /* Збільшено з 1.2em */
-    color: #2a1e1e;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  }
 }
 
 .main-button {
@@ -333,13 +309,14 @@ main p.payment-text {
     margin: 10px 0;
     padding: 20px;
     box-sizing: border-box;
+    border: 2px solid #3c2f2f; /* Темна обводка */
   }
 
   .benefit-block h3 {
     font-family: 'Playfair Display', serif;
     font-weight: bold;
-    font-size: 1.6em; /* Увеличенный размер для мобильных */
-    color: #ab47bc; /* Нежно-фиолетовый */
+    font-size: 2.2em; /* Збільшено з 1.6em */
+    color: #c300ff; /* Виправлено: той самий яскравий рожево-пурпурний */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
   }
@@ -347,8 +324,8 @@ main p.payment-text {
   .benefit-block p {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
-    font-size: 1em; /* Сохранен для мобильных */
-    color: #2a1e1e; /* Темно-коричневый */
+    font-size: 1.4em; /* Залишено як у попередній версії */
+    color: #2a1e1e;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   }
 
@@ -416,7 +393,4 @@ main p.payment-text {
     margin-bottom: 15px;
     color: #3c2f2f !important;
   }
-
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
 }
