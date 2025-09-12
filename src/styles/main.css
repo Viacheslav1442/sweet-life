@@ -166,7 +166,7 @@ body {
 .benefit-block h3 {
   font-family: 'Playfair Display', serif;
   font-weight: bold;
-  font-size: 2.4em; /* Збільшено з 2.2em */
+  font-size: 2.2em; /* Зменшено з 2.4em */
   color: #c300ff; /* Яскравий рожево-пурпурний */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
@@ -175,7 +175,7 @@ body {
 .benefit-block p {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
-  font-size: 1.5em; /* Залишено як у попередній версії */
+  font-size: 1.3em; /* Зменшено з 1.5em */
   color: #2a1e1e;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -315,8 +315,8 @@ main p.payment-text {
   .benefit-block h3 {
     font-family: 'Playfair Display', serif;
     font-weight: bold;
-    font-size: 2.2em; /* Збільшено з 1.6em */
-    color: #c300ff; /* Виправлено: той самий яскравий рожево-пурпурний */
+    font-size: 2em; /* Зменшено з 2.2em */
+    color: #c300ff; /* Яскравий рожево-пурпурний */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
   }
@@ -324,7 +324,7 @@ main p.payment-text {
   .benefit-block p {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
-    font-size: 1.4em; /* Залишено як у попередній версії */
+    font-size: 1.2em; /* Зменшено з 1.4em */
     color: #2a1e1e;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   }
