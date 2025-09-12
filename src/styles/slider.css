@@ -38,6 +38,7 @@
   width: 40px;
   height: 40px;
   background-color: rgba(128, 0, 128, 0.7); /* Полупрозрачный фиолетовый */
+  border: 2px solid #fff; /* Додано: біла обводка навколо кола */
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -57,6 +58,7 @@
     0.9
   ); /* Чуть менее прозрачный при наведении */
   transform: translateY(-50%) scale(1.1);
+  border-color: #fff; /* Обводка лишається білою на hover */
 }
 
 .arrow-left {
@@ -98,10 +100,12 @@
     height: 35px;
     font-size: 1.2rem;
     background-color: rgba(128, 0, 128, 0.7); /* Полупрозрачный фиолетовый */
+    border: 2px solid #fff; /* Додано: біла обводка для мобільних */
   }
 
   .arrow:hover {
     background-color: rgba(128, 0, 128, 0.9);
+    border-color: #fff; /* Обводка на hover */
   }
 
   .arrow-left {
@@ -135,9 +139,11 @@
     height: 30px;
     font-size: 1rem;
     background-color: rgba(128, 0, 128, 0.7); /* Полупрозрачный фиолетовый */
+    border: 2px solid #fff; /* Додано: біла обводка для маленьких екранів */
   }
 
   .arrow:hover {
     background-color: rgba(128, 0, 128, 0.9);
+    border-color: #fff; /* Обводка на hover */
   }
 }
