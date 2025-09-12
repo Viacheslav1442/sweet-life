@@ -71,22 +71,25 @@ body {
   font-family: 'Dancing Script', cursive; /* Рукописный шрифт */
   font-weight: 700; /* Жирный для заголовка */
   font-size: 2.5em; /* Сильно большой шрифт */
-  line-height: 1.4; /* Уменьшен для баланса */
+  line-height: 1.4;
   margin: 20px 0;
   color: #6a1b9a; /* Выразительный лиловый */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Усиленная тень для читаемости */
+  text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff, 1px 1px 4px rgba(0, 0, 0, 0.3); /* Белая окантовка + тень */
 }
 
 .course-list {
   font-family: 'Dancing Script', cursive; /* Рукописный шрифт */
   font-weight: 600; /* Полужирный для списка */
   font-size: 1.6em; /* Большой шрифт */
-  line-height: 1.5; /* Увеличен для читаемости */
+  line-height: 1.5;
   margin: 10px 0;
   padding-left: 50px; /* Увеличен отступ для нумерации */
   color: #6a1b9a; /* Выразительный лиловый */
   text-align: left;
   list-style-type: decimal;
+  text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff, 1px 1px 4px rgba(0, 0, 0, 0.3); /* Белая окантовка + тень */
 }
 
 .benefits {
@@ -344,7 +347,8 @@ main p.payment-text {
     line-height: 1.4;
     margin: 10px 0;
     color: #6a1b9a; /* Выразительный лиловый */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Усиленная тень */
+    text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 1px -1px 0 #ffffff,
+      -1px 1px 0 #ffffff, 1px 1px 4px rgba(0, 0, 0, 0.3); /* Белая окантовка + тень */
   }
 
   .course-list {
@@ -357,6 +361,8 @@ main p.payment-text {
     color: #6a1b9a; /* Выразительный лиловый */
     text-align: left;
     list-style-type: decimal;
+    text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 1px -1px 0 #ffffff,
+      -1px 1px 0 #ffffff, 1px 1px 4px rgba(0, 0, 0, 0.3); /* Белая окантовка + тень */
   }
 
   main p.payment-text {
