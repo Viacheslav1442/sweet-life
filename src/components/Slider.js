@@ -10,16 +10,19 @@ function updateSlider() {
   slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
+// Переключение вправо
 arrowRight.addEventListener('click', () => {
   currentIndex = (currentIndex + 1) % slides.length;
   updateSlider();
 });
 
+// Переключение влево
 arrowLeft.addEventListener('click', () => {
   currentIndex = (currentIndex - 1 + slides.length) % slides.length;
   updateSlider();
 });
 
+// Поддержка свайпов для мобильных устройств
 slider.addEventListener('touchstart', e => {
   startX = e.touches[0].clientX;
   isDragging = true;
@@ -44,7 +47,5 @@ slider.addEventListener('touchend', () => {
   isDragging = false;
 });
 
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateSlider();
-}, 5000);
+// Инициализация слайдера
+updateSlider();

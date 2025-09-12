@@ -31,15 +31,35 @@
 }
 
 .arrow {
-  display: none;
+  display: block; /* Показываем кнопки */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: #800080; /* Фиолетовый цвет */
+  color: #fff;
+  border-radius: 50%; /* Круглая форма */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.arrow:hover {
+  background-color: #660066; /* Темнее при наведении */
+  transform: translateY(-50%) scale(1.1);
 }
 
 .arrow-left {
-  display: none;
+  left: 10px;
 }
 
 .arrow-right {
-  display: none;
+  right: 10px;
 }
 
 @media (max-width: 768px) {
@@ -67,6 +87,20 @@
     object-position: center;
     max-height: 450px;
   }
+
+  .arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  .arrow-left {
+    left: 5px;
+  }
+
+  .arrow-right {
+    right: 5px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -84,5 +118,11 @@
     object-fit: cover;
     object-position: center;
     max-height: 450px;
+  }
+
+  .arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
   }
 }
