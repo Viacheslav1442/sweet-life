@@ -68,9 +68,9 @@ body {
 }
 
 .course-info {
-  font-family: 'Dancing Script', cursive; /* Рукописный шрифт */
-  font-weight: 700; /* Жирный для заголовка */
-  font-size: 1.8em; /* Чуть увеличен для выразительности */
+  font-family: 'Playfair Display', serif; /* Прописной шрифт */
+  font-weight: bold; /* Жирный для заголовка */
+  font-size: 1.5em;
   line-height: 1.6;
   margin: 20px 0;
   color: #6a1b9a; /* Выразительный лиловый */
@@ -78,9 +78,9 @@ body {
 }
 
 .course-list {
-  font-family: 'Dancing Script', cursive; /* Рукописный шрифт */
+  font-family: 'Playfair Display', serif; /* Прописной шрифт */
   font-weight: 600; /* Полужирный для списка */
-  font-size: 1.3em; /* Чуть увеличен для читаемости */
+  font-size: 1.2em;
   line-height: 1.6;
   margin: 10px 0;
   padding-left: 40px;
@@ -338,9 +338,9 @@ main p.payment-text {
   }
 
   .course-info {
-    font-family: 'Dancing Script', cursive; /* Рукописный шрифт */
-    font-weight: 700; /* Жирный для заголовка */
-    font-size: 1.4em; /* Чуть увеличен для мобильных */
+    font-family: 'Playfair Display', serif; /* Прописной шрифт */
+    font-weight: bold; /* Жирный для заголовка */
+    font-size: 1.2em;
     line-height: 1.6;
     margin: 10px 0;
     color: #6a1b9a; /* Выразительный лиловый */
@@ -348,9 +348,9 @@ main p.payment-text {
   }
 
   .course-list {
-    font-family: 'Dancing Script', cursive; /* Рукописный шрифт */
+    font-family: 'Playfair Display', serif; /* Прописной шрифт */
     font-weight: 600; /* Полужирный для списка */
-    font-size: 1.1em; /* Чуть увеличен для читаемости */
+    font-size: 1em;
     line-height: 1.6;
     margin: 10px 0;
     padding-left: 30px;
@@ -366,5 +366,4 @@ main p.payment-text {
   }
 
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
 }
