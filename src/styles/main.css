@@ -324,40 +324,18 @@ main p.payment-text {
       243,
       229,
       245,
-      0.95
-    ); /* Збільшена opacity для кращої читабельності тексту */
+      0.9
+    ); /* Оригінальний фон з непрозорістю для читабельності тексту */
     border-radius: 15px;
     padding: 20px;
     width: 32%;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative; /* Важливо: для позиціонування ::before */
+    position: relative;
     overflow: hidden;
-    /* Видалено: background-blend-mode: overlay — це і було причиною "білизни" */
+    /* Видалено: background-blend-mode, ::before — фото тепер як у оригіналі */
   }
 
-  .benefit-block::before {
-    content: ''; /* Порожній псевдоелемент для overlay */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.4),
-      transparent
-    ); /* Темний градієнт зверху — затемнює фото, але не "вибілює" */
-    z-index: 1; /* Під текстом (z-index: 2 для контенту, але не потрібно) */
-    pointer-events: none; /* Щоб не заважав hover/клікам */
-  }
-
-  .benefit-block > * {
-    position: relative; /* Текст поверх ::before */
-    z-index: 2;
-  }
-
-  /* Залишаємо фони для конкретних блоків */
   .benefit-block-1 {
     background-image: url('../img/4napoleon.jpg');
     background-size: cover;
@@ -405,16 +383,12 @@ main p.payment-text {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   }
 
-  .benefit-block:hover::before {
-    opacity: 0.7; /* На hover — трохи слабший overlay для динаміки */
-  }
-
   .benefit-block h3 {
     font-family: 'Playfair Display', serif;
     font-weight: bold;
     font-size: 1.8em;
     color: #ab47bc;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Посилений shadow для кращої видимості на фото */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Оригінальний shadow — без посилення */
     margin-bottom: 10px;
   }
 
@@ -423,10 +397,10 @@ main p.payment-text {
     font-weight: 600;
     font-size: 1.1em;
     color: #2a1e1e;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Посилений shadow */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Оригінальний shadow */
   }
 
-  /* Мобільна версія — те саме, але адаптуй якщо потрібно */
+  /* Мобільна версія — те саме */
   @media (max-width: 768px) {
     .benefit-block {
       width: 100% !important;
@@ -435,19 +409,14 @@ main p.payment-text {
       box-sizing: border-box;
     }
 
-    .benefit-block::before {
-      /* Той самий градієнт, але сильніший на мобільному для маленьких екранів */
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
-    }
-
     .benefit-block h3 {
       font-size: 1.6em;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     .benefit-block p {
       font-size: 1em;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
   }
 
