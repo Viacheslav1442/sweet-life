@@ -312,33 +312,143 @@ main p.payment-text {
   }
 
   .benefits {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
   .benefit-block {
-    width: 100% !important;
-    margin: 10px 0;
+    background: rgba(
+      243,
+      229,
+      245,
+      0.95
+    ); /* Збільшена opacity для кращої читабельності тексту */
+    border-radius: 15px;
     padding: 20px;
-    box-sizing: border-box;
+    width: 32%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Важливо: для позиціонування ::before */
+    overflow: hidden;
+    /* Видалено: background-blend-mode: overlay — це і було причиною "білизни" */
+  }
+
+  .benefit-block::before {
+    content: ''; /* Порожній псевдоелемент для overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4),
+      transparent
+    ); /* Темний градієнт зверху — затемнює фото, але не "вибілює" */
+    z-index: 1; /* Під текстом (z-index: 2 для контенту, але не потрібно) */
+    pointer-events: none; /* Щоб не заважав hover/клікам */
+  }
+
+  .benefit-block > * {
+    position: relative; /* Текст поверх ::before */
+    z-index: 2;
+  }
+
+  /* Залишаємо фони для конкретних блоків */
+  .benefit-block-1 {
+    background-image: url('../img/4napoleon.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .benefit-block-2 {
+    background-image: url('../img/6honey.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .benefit-block-3 {
+    background-image: url('../img/9red.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .benefit-block-4 {
+    background-image: url('../img/11bird.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .benefit-block-5 {
+    background-image: url('../img/13girl.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .benefit-block-6 {
+    background-image: url('../img/15bonus.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .benefit-block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .benefit-block:hover::before {
+    opacity: 0.7; /* На hover — трохи слабший overlay для динаміки */
   }
 
   .benefit-block h3 {
     font-family: 'Playfair Display', serif;
     font-weight: bold;
-    font-size: 1.6em; /* Увеличенный размер для мобильных */
-    color: #ab47bc; /* Нежно-фиолетовый */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    font-size: 1.8em;
+    color: #ab47bc;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Посилений shadow для кращої видимості на фото */
     margin-bottom: 10px;
   }
 
   .benefit-block p {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
-    font-size: 1em; /* Сохранен для мобильных */
-    color: #2a1e1e; /* Темно-коричневый */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    font-size: 1.1em;
+    color: #2a1e1e;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Посилений shadow */
+  }
+
+  /* Мобільна версія — те саме, але адаптуй якщо потрібно */
+  @media (max-width: 768px) {
+    .benefit-block {
+      width: 100% !important;
+      margin: 10px 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .benefit-block::before {
+      /* Той самий градієнт, але сильніший на мобільному для маленьких екранів */
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+    }
+
+    .benefit-block h3 {
+      font-size: 1.6em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .benefit-block p {
+      font-size: 1em;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    }
   }
 
   main {
