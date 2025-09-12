@@ -320,12 +320,6 @@ main p.payment-text {
   }
 
   .benefit-block {
-    background: rgba(
-      243,
-      229,
-      245,
-      0.9
-    ); /* Оригінальний фон з непрозорістю для читабельності тексту */
     border-radius: 15px;
     padding: 20px;
     width: 32%;
@@ -333,7 +327,7 @@ main p.payment-text {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
-    /* Видалено: background-blend-mode, ::before — фото тепер як у оригіналі */
+    /* Видалено: background: rgba(243, 229, 245, 0.9) — щоб фото були без ефекту */
   }
 
   .benefit-block-1 {
@@ -388,7 +382,7 @@ main p.payment-text {
     font-weight: bold;
     font-size: 1.8em;
     color: #ab47bc;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Оригінальний shadow — без посилення */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Посилений shadow для читабельності без фону */
     margin-bottom: 10px;
   }
 
@@ -397,10 +391,10 @@ main p.payment-text {
     font-weight: 600;
     font-size: 1.1em;
     color: #2a1e1e;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Оригінальний shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Посилений shadow */
   }
 
-  /* Мобільна версія — те саме */
+  /* Мобільна версія */
   @media (max-width: 768px) {
     .benefit-block {
       width: 100% !important;
@@ -411,12 +405,12 @@ main p.payment-text {
 
     .benefit-block h3 {
       font-size: 1.6em;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .benefit-block p {
       font-size: 1em;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
   }
 
