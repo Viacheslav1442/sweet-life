@@ -7,11 +7,12 @@ body {
   font-weight: 400;
   font-style: normal;
   background: #9000ff;
+  background: #9000ff;
   background: linear-gradient(
     90deg,
-    rgba(144, 0, 255, 1) 0%,
-    rgba(48, 26, 64, 1) 50%,
-    rgba(144, 0, 255, 1) 100%
+    rgba(144, 0, 255, 0.8) 0%,
+    rgba(48, 26, 64, 0.5) 50%,
+    rgba(144, 0, 255, 0.8) 100%
   );
   color: #333;
   margin: 0;
