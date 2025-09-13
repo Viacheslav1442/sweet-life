@@ -9,10 +9,12 @@ body {
   background: #9000ff;
   background: #9000ff;
   background: #9000ff;
+  background: #9000ff;
   background: linear-gradient(
     90deg,
     rgba(144, 0, 255, 0.8) 0%,
-    rgba(255, 255, 255, 1) 50%,
+    rgba(247, 236, 255, 1) 33%,
+    rgba(247, 236, 255, 1) 66%,
     rgba(144, 0, 255, 0.8) 100%
   );
   color: #333;
