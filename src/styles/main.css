@@ -8,10 +8,11 @@ body {
   font-style: normal;
   background: #9000ff;
   background: #9000ff;
+  background: #9000ff;
   background: linear-gradient(
     90deg,
     rgba(144, 0, 255, 0.8) 0%,
-    rgba(48, 26, 64, 0.5) 50%,
+    rgba(255, 255, 255, 1) 50%,
     rgba(144, 0, 255, 0.8) 100%
   );
   color: #333;
