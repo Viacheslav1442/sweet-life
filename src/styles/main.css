@@ -76,7 +76,7 @@ body {
 .chef-text p {
   font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Виправлено: видалено "smith" */
   color: #3c2f2f;
 }
 
@@ -252,16 +252,17 @@ h1 {
 }
 
 h1.chef-text {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Dancing Script', cursive; /* Змінено на прописний стиль, як у course-list */
   font-weight: 700;
-  font-size: 2em;
+  font-size: 2.2em; /* Збільшено з 2em */
   border: 1px solid #800080;
   border-radius: 10px;
   padding: 15px;
-  background: linear-gradient(135deg, #b666d2, #f3e5f5);
+  background: #fff; /* Змінено на білий фон */
   display: inline-block;
   margin-bottom: 20px;
   color: #3c2f2f;
+  text-shadow: 1px 1px 2px #3c2f2f; /* Додано темну окантовку тексту */
 }
 
 main {
@@ -380,8 +381,8 @@ main p.payment-text {
 
   h1.chef-text {
     padding: 10px 5px;
-    font-size: 1em !important;
-    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em !important; /* Збільшено з 1em */
+    font-family: 'Dancing Script', cursive; /* Прописний стиль, як у course-list */
     font-weight: 700;
     border: 1.5px solid #800080;
     margin-bottom: 20px;
@@ -389,6 +390,9 @@ main p.payment-text {
     margin-left: auto;
     margin-right: auto;
     line-height: 1.4;
+    background: #fff; /* Білий фон */
+    color: #3c2f2f;
+    text-shadow: 1px 1px 2px #3c2f2f; /* Темна окантовка тексту */
   }
 
   p.intro-text {
