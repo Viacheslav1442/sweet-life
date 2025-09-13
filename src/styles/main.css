@@ -88,6 +88,22 @@ body {
   color: #3c2f2f;
 }
 
+/* Стили для заголовка h1 */
+h1.chef-text {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 2.2em;
+  border: 1px solid #800080;
+  border-radius: 10px;
+  padding: 15px;
+  background: #fff;
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #3c2f2f;
+  /* НОВОЕ: Светлая почти белая обводка для всех устройств */
+  text-shadow: 1px 1px 2px #3c2f2f, 0 0 3px rgba(255, 255, 255, 0.95);
+}
+
 /* Стили для заголовка "Що ви отримуєте в курсі" */
 .course-info {
   font-family: 'Dancing Script', cursive;
@@ -96,7 +112,8 @@ body {
   line-height: 1.3;
   margin: 20px 0;
   color: #6a1b9a;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  /* НОВОЕ: Светлая почти белая обводка для всех устройств */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 3px rgba(255, 255, 255, 0.95);
 }
 
 /* Стили для списка курса */
@@ -110,57 +127,120 @@ body {
   color: #6a1b9a;
   text-align: left;
   list-style-type: decimal;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  /* НОВОЕ: Светлая почти белая обводка для текста списка */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 3px rgba(255, 255, 255, 0.95);
+}
+
+/* Стили для элементов li */
+.course-list li {
+  /* НОВОЕ: Светлая обводка для текста внутри li */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 3px rgba(255, 255, 255, 0.95);
+}
+
+/* Стили для номеров списка (цифры 1–5) */
+.course-list ::marker {
+  /* НОВОЕ: Светлая обводка для номеров списка */
+  color: #6a1b9a;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.95);
 }
 
 /* Адаптивность для планшетов (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
+  h1.chef-text {
+    font-size: 1.8em;
+    /* НОВОЕ: Сохраняем обводку */
+    text-shadow: 1px 1px 2px #3c2f2f, 0 0 3px rgba(255, 255, 255, 0.95);
+  }
   .course-info {
     font-size: 3em;
+    /* НОВОЕ: Сохраняем обводку */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 3px rgba(255, 255, 255, 0.95);
   }
   .course-list {
     font-size: 2em;
+    /* НОВОЕ: Сохраняем обводку */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 3px rgba(255, 255, 255, 0.95);
+  }
+  .course-list li {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 3px rgba(255, 255, 255, 0.95);
+  }
+  .course-list ::marker {
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.95);
   }
 }
 
 /* Адаптивность для мобильных устройств (до 768px) */
 @media only screen and (max-width: 768px) {
+  h1.chef-text {
+    padding: 10px 5px;
+    font-size: 1.2em;
+    border: 1.5px solid #800080;
+    margin-bottom: 20px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+    background: #fff;
+    color: #3c2f2f;
+    /* НОВОЕ: Сохраняем обводку */
+    text-shadow: 1px 1px 2px #3c2f2f, 0 0 3px rgba(255, 255, 255, 0.95);
+  }
   .course-info {
     font-size: 2.8em;
     line-height: 1.3;
     margin: 10px 0;
-    /* НОВОЕ: Светлая белая обводка для текста на мобильных */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 3px #ffffff;
+    /* НОВОЕ: Сохраняем обводку */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 3px rgba(255, 255, 255, 0.95);
   }
   .course-list {
     font-size: 1.8em;
     line-height: 1.4;
     padding-left: 40px;
-    /* НОВОЕ: Светлая белая обводка для списка на мобильных */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 3px #ffffff;
+    /* НОВОЕ: Сохраняем обводку */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 3px rgba(255, 255, 255, 0.95);
   }
   .course-list li {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 3px #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 3px rgba(255, 255, 255, 0.95);
+  }
+  .course-list ::marker {
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.95);
   }
 }
 
 /* Для очень маленьких экранов (до 480px) */
 @media only screen and (max-width: 480px) {
+  h1.chef-text {
+    font-size: 1.2em;
+    /* НОВОЕ: Сохраняем обводку, чуть уменьшенную для маленьких экранов */
+    text-shadow: 1px 1px 2px #3c2f2f, 0 0 2px rgba(255, 255, 255, 0.95);
+  }
   .course-info {
     font-size: 2.2em;
     line-height: 1.3;
-    /* НОВОЕ: Светлая обводка для маленьких экранов */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 2px #ffffff;
+    /* НОВОЕ: Сохраняем обводку, чуть уменьшенную */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 2px rgba(255, 255, 255, 0.95);
   }
   .course-list {
     font-size: 1.5em;
     line-height: 1.4;
     padding-left: 20px;
-    /* НОВОЕ: Светлая обводка для маленьких экранов */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 2px #ffffff;
+    /* НОВОЕ: Сохраняем обводку, чуть уменьшенную */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 2px rgba(255, 255, 255, 0.95);
   }
   .course-list li {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 2px #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 2px rgba(255, 255, 255, 0.95);
+  }
+  .course-list ::marker {
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.95);
   }
 }
 
