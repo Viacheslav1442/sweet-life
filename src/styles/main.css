@@ -123,38 +123,30 @@ body {
   }
 }
 
-/* Адаптивность для мобильных устройств (до 768px) — с only screen and и !important для теста */
-@media only screen and (max-width: 768px) {
+/* Адаптивность для мобильных устройств (до 768px) */
+@media (max-width: 768px) {
   .course-info {
-    font-size: 4.8em !important; /* Увеличено, с !important для пробития конфликтов */
-    line-height: 1.2;
-    margin: 15px 0;
+    font-size: 4.8em; /* Увеличено с 3.2em (примерно в 1.5 раза) */
+    line-height: 1.2; /* Скорректировано для больших шрифтов */
+    margin: 15px 0; /* Увеличен отступ для баланса */
   }
   .course-list {
-    font-size: 3.15em !important; /* Увеличено, с !important */
-    line-height: 1.3;
-    padding-left: 45px;
-  }
-  /* Дополнительно: Принудительно для li в списке, если проблема там */
-  .course-list li {
-    font-size: 3.15em !important;
-    line-height: 1.3;
+    font-size: 3.15em; /* Увеличено с 2.1em (примерно в 1.5 раза) */
+    line-height: 1.3; /* Скорректировано для читаемости */
+    padding-left: 45px; /* Увеличен отступ для номеров списка */
   }
 }
 
 /* Для очень маленьких экранов (до 480px) */
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
   .course-info {
-    font-size: 3.9em !important;
+    font-size: 3.9em; /* Увеличено с 2.6em, но скорректировано для маленьких экранов */
     line-height: 1.2;
   }
   .course-list {
-    font-size: 2.7em !important;
+    font-size: 2.7em; /* Увеличено с 1.8em */
     line-height: 1.3;
-    padding-left: 30px;
-  }
-  .course-list li {
-    font-size: 2.7em !important;
+    padding-left: 30px; /* Уменьшено для компактности */
   }
 }
 
