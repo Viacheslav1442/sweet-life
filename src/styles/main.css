@@ -1,15 +1,17 @@
 /* Переміщено @import на початок файлу */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+* {
+  box-sizing: border-box; /* Глобально для кращого контролю розмірів */
+}
 
 body {
   font-family: 'Asap', sans-serif !important;
   font-weight: 400;
   font-style: normal;
-  background: #9000ff;
-  background: #9000ff;
-  background: #9000ff;
-  background: #9000ff;
   background: linear-gradient(
     90deg,
     rgba(144, 0, 255, 0.8) 0%,
@@ -112,7 +114,7 @@ body {
 }
 
 .benefit-block {
-  background: rgba(243, 229, 245, 0.9); /* Оригінальний фон */
+  background: rgba(243, 229, 245, 0.9); /* Fallback фон */
   border: 2px solid #3c2f2f; /* Темна обводка */
   border-radius: 15px;
   padding: 20px;
@@ -121,6 +123,28 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+}
+
+.benefit-block::before {
+  /* Оверлей для читабельності тексту на фото */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  ); /* Темний градієнт зверху */
+  z-index: 1;
+}
+
+.benefit-block > * {
+  /* Піднімаємо контент над оверлеєм */
+  position: relative;
+  z-index: 2;
 }
 
 .benefit-block-1 {
@@ -175,7 +199,7 @@ body {
   font-weight: bold;
   font-size: 2.2em; /* Зменшено з 2.4em */
   color: #c300ff; /* Яскравий рожево-пурпурний */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Посилений для кращої видимості */
   margin-bottom: 10px;
 }
 
@@ -183,8 +207,8 @@ body {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
   font-size: 1.3em; /* Зменшено з 1.5em */
-  color: #2a1e1e;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  color: #fff; /* Змінив на білий для контрасту на темному оверлеї */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Посилений */
 }
 
 .main-button {
@@ -226,7 +250,7 @@ h1 {
 }
 
 h1.chef-text {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif; /* Явно задаємо з HTML */
   font-weight: 700;
   font-size: 2em;
   border: 1px solid #800080;
@@ -301,8 +325,8 @@ main p.payment-text {
 
   .slider-container {
     height: 450px;
-    width: 100vw;
-    margin-left: -10px;
+    width: 100%; /* Змінив з 100vw для кращої адаптивності */
+    margin: 0 auto; /* Центруємо */
   }
 
   .benefits {
@@ -324,7 +348,7 @@ main p.payment-text {
     font-weight: bold;
     font-size: 2em; /* Зменшено з 2.2em */
     color: #c300ff; /* Яскравий рожево-пурпурний */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 10px;
   }
 
@@ -332,8 +356,8 @@ main p.payment-text {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
     font-size: 1.2em; /* Зменшено з 1.4em */
-    color: #2a1e1e;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
   }
 
   main {
