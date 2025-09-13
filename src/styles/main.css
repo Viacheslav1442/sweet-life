@@ -68,7 +68,7 @@ body {
   flex: 1;
   min-width: 300px;
   padding: 20px;
-  font-family: 'Asap', sans-serif;
+  font-family: 'Playfair Display', serif; /* НОВЕ: Змінено шрифт на Playfair Display для елегантності */
   color: #333;
   border: 2px solid #800080;
   border-radius: 10px;
@@ -79,13 +79,23 @@ body {
   font-size: 2rem;
   color: #800080;
   margin-bottom: 15px;
+  font-weight: 700; /* НОВЕ: Жирний шрифт для заголовка */
 }
 
-.chef-text p {
+.chef-text p:first-of-type {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 15px;
   color: #3c2f2f;
+  font-weight: 600; /* НОВЕ: Полужирний шрифт для першого параграфа */
+}
+
+.chef-text p:last-of-type {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #e6e6fa; /* НОВЕ: Лавандовий колір для другого параграфа */
+  font-weight: 400; /* Звичайна вага для другого параграфа */
 }
 
 /* Стили для заголовка h1 */
