@@ -46,6 +46,9 @@
   justify-content: center;
   font-size: 1.8rem; /* Збільшено для товстіших стрілок */
   font-weight: bold; /* Жирніші стрілки */
+  line-height: 1; /* Додано: усуває зайвий вертикальний відступ */
+  text-align: center; /* Додано: точний горизонтальний центр */
+  vertical-align: middle; /* Додано: вирівнювання по середині baseline */
   cursor: pointer;
   user-select: none;
   transition: background-color 0.3s, transform 0.2s;
@@ -98,6 +101,9 @@
     font-weight: bold; /* Жирніші стрілки */
     background-color: #800080; /* Повністю непрозорий */
     border: 1px solid #fff;
+    line-height: 1; /* Додано: для центрування */
+    text-align: center; /* Додано: для центрування */
+    vertical-align: middle; /* Додано: для центрування */
   }
 
   .arrow:hover {
@@ -138,6 +144,9 @@
     font-weight: bold; /* Жирніші стрілки */
     background-color: #800080; /* Повністю непрозорий */
     border: 1px solid #fff;
+    line-height: 1; /* Додано: для центрування */
+    text-align: center; /* Додано: для центрування */
+    vertical-align: middle; /* Додано: для центрування */
   }
 
   .arrow:hover {
