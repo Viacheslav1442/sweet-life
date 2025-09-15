@@ -2,13 +2,28 @@
 <html lang="uk">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <style>
         body {
             font-family: sans-serif;
             padding: 20px;
+        }
+
+        .login-container {
+            margin-bottom: 20px;
+        }
+
+        input[type="password"] {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 16px;
         }
 
         table {
@@ -26,17 +41,19 @@
         th {
             background: #f0f0f0;
         }
-
-        button {
-            padding: 5px 10px;
-            cursor: pointer;
-        }
     </style>
 </head>
 
 <body>
     <h1>Admin Panel</h1>
-    <table>
+
+    <div class="login-container" id="login-container">
+        <input type="password" id="admin-token" placeholder="Введіть Admin Token">
+        <button id="login-btn">Login</button>
+        <span id="login-error" style="color: red; margin-left: 10px;"></span>
+    </div>
+
+    <table id="payments-table-container" style="display:none;">
         <thead>
             <tr>
                 <th>Order ID</th>
@@ -55,23 +72,25 @@
     </table>
 
     <script>
-        // Запит токена при відкритті сторінки
-        const ADMIN_TOKEN = prompt("Введіть Admin Token");
-        if (!ADMIN_TOKEN) {
-            alert('Токен не введено');
-            document.getElementById('payments-table').innerHTML = '<tr><td colspan="6">Доступ заборонено</td></tr>';
-            throw new Error('No token provided');
-        }
+        const loginBtn = document.getElementById('login-btn');
+        const loginError = document.getElementById('login-error');
+        const tokenInput = document.getElementById('admin-token');
 
-        async function fetchPayments() {
+        loginBtn.addEventListener('click', async () => {
+            const token = tokenInput.value.trim();
+            if (!token) {
+                loginError.textContent = 'Введіть токен';
+                return;
+            }
+            loginError.textContent = '';
+
             try {
                 const res = await fetch('/api/admin/payments', {
-                    headers: { 'Authorization': 'Bearer ' + ADMIN_TOKEN }
+                    headers: { 'Authorization': 'Bearer ' + token }
                 });
 
                 if (res.status === 401 || res.status === 403) {
-                    alert('Невірний токен');
-                    document.getElementById('payments-table').innerHTML = '<tr><td colspan="6">Доступ заборонено</td></tr>';
+                    loginError.textContent = 'Невірний токен';
                     return;
                 }
 
@@ -79,57 +98,70 @@
 
                 const data = await res.json();
 
-                const tbody = document.getElementById('payments-table');
-                tbody.innerHTML = '';
+                document.getElementById('login-container').style.display = 'none';
+                const tableContainer = document.getElementById('payments-table-container');
+                tableContainer.style.display = 'table';
 
-                if (data.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="6">Контактів немає</td></tr>';
-                    return;
-                }
-
-                data.forEach(p => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td>${p.orderId}</td>
-                        <td>${p.phone || ''}</td>
-                        <td>${p.email || ''}</td>
-                        <td>${p.telegramUsername || ''}</td>
-                        <td>${p.addedToChannel ? '✅' : '❌'}</td>
-                        <td>
-                            ${!p.addedToChannel ? `<button onclick="markAdded('${p.orderId}')">Позначити доданим</button>` : ''}
-                        </td>
-                    `;
-                    tbody.appendChild(tr);
-                });
+                renderPayments(data, token);
 
             } catch (err) {
                 console.error(err);
-                alert('Помилка при завантаженні даних');
+                loginError.textContent = 'Помилка при завантаженні даних';
             }
+        });
+
+        function renderPayments(data, token) {
+            const tbody = document.getElementById('payments-table');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6">Контактів немає</td></tr>';
+                return;
+            }
+
+            data.forEach(p => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${p.orderId}</td>
+                    <td>${p.phone || ''}</td>
+                    <td>${p.email || ''}</td>
+                    <td>${p.telegramUsername || ''}</td>
+                    <td>${p.addedToChannel ? '✅' : '❌'}</td>
+                    <td>
+                        ${!p.addedToChannel ? `<button onclick="markAdded('${p.orderId}', '${token}')">Позначити доданим</button>` : ''}
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
         }
 
-        async function markAdded(orderId) {
+        async function markAdded(orderId, token) {
             try {
                 const res = await fetch('/api/admin/mark-added', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + ADMIN_TOKEN
+                        'Authorization': 'Bearer ' + token
                     },
                     body: JSON.stringify({ orderId })
                 });
 
                 const data = await res.json();
-                if (data.success) fetchPayments();
-                else alert('Помилка: ' + data.error);
+                if (data.success) {
+                    const res2 = await fetch('/api/admin/payments', {
+                        headers: { 'Authorization': 'Bearer ' + token }
+                    });
+                    const updatedData = await res2.json();
+                    renderPayments(updatedData, token);
+                } else {
+                    alert('Помилка: ' + data.error);
+                }
 
             } catch (err) {
                 console.error(err);
                 alert('Помилка при оновленні запису');
             }
         }
-
-        fetchPayments();
     </script>
 </body>
 
