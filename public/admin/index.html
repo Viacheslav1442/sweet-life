@@ -55,19 +55,37 @@
     </table>
 
     <script>
-        // Введення токена адміна
+        // Запит токена при відкритті сторінки
         const ADMIN_TOKEN = prompt("Введіть Admin Token");
+        if (!ADMIN_TOKEN) {
+            alert('Токен не введено');
+            document.getElementById('payments-table').innerHTML = '<tr><td colspan="6">Доступ заборонено</td></tr>';
+            throw new Error('No token provided');
+        }
 
         async function fetchPayments() {
             try {
-                const res = await fetch('/api/admin-payments', {
+                const res = await fetch('/api/admin/payments', {
                     headers: { 'Authorization': 'Bearer ' + ADMIN_TOKEN }
                 });
-                if (!res.ok) throw new Error('Помилка авторизації або API');
+
+                if (res.status === 401 || res.status === 403) {
+                    alert('Невірний токен');
+                    document.getElementById('payments-table').innerHTML = '<tr><td colspan="6">Доступ заборонено</td></tr>';
+                    return;
+                }
+
+                if (!res.ok) throw new Error('Помилка API');
+
                 const data = await res.json();
 
                 const tbody = document.getElementById('payments-table');
                 tbody.innerHTML = '';
+
+                if (data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6">Контактів немає</td></tr>';
+                    return;
+                }
 
                 data.forEach(p => {
                     const tr = document.createElement('tr');
@@ -92,7 +110,7 @@
 
         async function markAdded(orderId) {
             try {
-                const res = await fetch('/api/mark-added', {
+                const res = await fetch('/api/admin/mark-added', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -100,9 +118,11 @@
                     },
                     body: JSON.stringify({ orderId })
                 });
+
                 const data = await res.json();
                 if (data.success) fetchPayments();
                 else alert('Помилка: ' + data.error);
+
             } catch (err) {
                 console.error(err);
                 alert('Помилка при оновленні запису');
