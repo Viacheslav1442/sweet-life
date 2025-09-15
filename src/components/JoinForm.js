@@ -12,7 +12,7 @@ export function initJoinForm() {
             const phone = document.getElementById("phone").value;
 
             try {
-                const data = await initiatePayment(telegram, email, phone, 500);
+                const data = await initiatePayment(telegram, email, phone, 279);
                 if (data.success) {
                     const liqpayForm = document.createElement('form');
                     liqpayForm.method = 'POST';

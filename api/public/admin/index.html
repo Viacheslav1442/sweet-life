@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #f0f0f0;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Admin Panel</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Телефон</th>
+                <th>Email</th>
+                <th>Telegram</th>
+                <th>Додано до каналу</th>
+                <th>Дія</th>
+            </tr>
+        </thead>
+        <tbody id="payments-table">
+            <tr>
+                <td colspan="6">Завантаження...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Попросимо користувача ввести токен адміна
+        const ADMIN_TOKEN = prompt("Введіть Admin Token");
+
+        async function fetchPayments() {
+            try {
+                const res = await fetch('/api/admin-payments', {
+                    headers: { 'Authorization': 'Bearer ' + ADMIN_TOKEN }
+                });
+                if (!res.ok) throw new Error('Помилка авторизації або API');
+                const data = await res.json();
+
+                const tbody = document.getElementById('payments-table');
+                tbody.innerHTML = '';
+
+                data.forEach(p => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${p.orderId}</td>
+                        <td>${p.phone || ''}</td>
+                        <td>${p.email || ''}</td>
+                        <td>${p.telegramUsername || ''}</td>
+                        <td>${p.addedToChannel ? '✅' : '❌'}</td>
+                        <td>
+                            ${!p.addedToChannel ? `<button onclick="markAdded('${p.orderId}')">Позначити доданим</button>` : ''}
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+            } catch (err) {
+                console.error(err);
+                alert('Помилка при завантаженні даних');
+            }
+        }
+
+        async function markAdded(orderId) {
+            try {
+                const res = await fetch('/api/mark-added', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + ADMIN_TOKEN
+                    },
+                    body: JSON.stringify({ orderId })
+                });
+                const data = await res.json();
+                if (data.success) fetchPayments();
+                else alert('Помилка: ' + data.error);
+            } catch (err) {
+                console.error(err);
+                alert('Помилка при оновленні запису');
+            }
+        }
+
+        fetchPayments();
+    </script>
+</body>
+
+</html>
