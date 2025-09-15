@@ -43,3 +43,31 @@ export default class Modal {
         }
     }
 }
+
+
+// Обробка форми
+document.getElementById("telegramForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const orderId = formData.get("orderId");
+    const telegramUsername = formData.get("telegramUsername");
+
+    try {
+        const response = await fetch("/api/save-userdata", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ orderId, telegramUsername }),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            alert("Ваш Telegram збережено. Вас додадуть у канал вручну.");
+            modal.close();
+        } else {
+            alert("Помилка: " + data.error);
+        }
+    } catch (err) {
+        alert("Сталася помилка при збереженні");
+        console.error(err);
+    }
+});

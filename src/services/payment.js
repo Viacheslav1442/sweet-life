@@ -1,6 +1,6 @@
 
 
-export async function initiatePayment(telegram, email, phone, amount = 500) {
+export async function initiatePayment(telegram, email, phone, amount = 279) {
     try {
         const response = await fetch('/api/initiate-payment', {
             method: 'POST',
