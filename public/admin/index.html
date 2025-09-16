@@ -2,19 +2,12 @@
 <html lang="uk">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
     <title>Admin Panel</title>
     <style>
         body {
-            font-family: sans-serif;
-            padding: 20px;
-        }
-
-        input[type="password"],
-        button {
-            padding: 5px;
-            font-size: 16px;
+            font-family: Arial, sans-serif;
+            margin: 20px;
         }
 
         table {
@@ -25,22 +18,21 @@
 
         th,
         td {
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
 
         th {
-            background: #f0f0f0;
+            background-color: #f4f4f4;
         }
 
         button {
-            cursor: pointer;
+            padding: 5px 10px;
         }
 
-        #login-error {
-            color: red;
-            margin-left: 10px;
+        #login {
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -48,84 +40,96 @@
 <body>
     <h1>Admin Panel</h1>
 
-    <div id="login-container">
-        <input type="password" id="admin-token" placeholder="Введіть Admin Token">
-        <button id="login-btn">Login</button>
-        <span id="login-error"></span>
+    <div id="login">
+        <input type="password" id="token" placeholder="Введіть пароль" />
+        <button onclick="login()">Увійти</button>
     </div>
 
-    <table id="payments-table-container" style="display:none;">
-        <thead>
-            <tr>
-                <th>Order ID</th>
-                <th>Телефон</th>
-                <th>Email</th>
-                <th>Telegram</th>
-                <th>Додано до каналу</th>
-                <th>Дія</th>
-            </tr>
-        </thead>
-        <tbody id="payments-table">
-            <tr>
-                <td colspan="6">Завантаження...</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="content" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Телефон</th>
+                    <th>Email</th>
+                    <th>Telegram</th>
+                    <th>Додано до каналу</th>
+                    <th>Дія</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
 
     <script>
-        const loginBtn = document.getElementById('login-btn');
-        const loginError = document.getElementById('login-error');
-        const tokenInput = document.getElementById('admin-token');
+        let adminToken = '';
 
-        loginBtn.addEventListener('click', async () => {
-            const token = tokenInput.value.trim();
-            if (!token) { loginError.textContent = 'Введіть токен'; return; }
-            loginError.textContent = '';
+        function login() {
+            adminToken = document.getElementById('token').value.trim();
+            loadPayments();
+        }
 
+        async function loadPayments() {
             try {
-                const res = await fetch('/api/admin/payments', { headers: { 'Authorization': 'Bearer ' + token } });
-                if (res.status === 401 || res.status === 403) { loginError.textContent = 'Невірний токен'; return; }
-                if (!res.ok) throw new Error('Помилка API');
+                const res = await fetch('/api/admin-payments', {
+                    headers: { Authorization: 'Bearer ' + adminToken }
+                });
+
+                if (!res.ok) {
+                    alert('Доступ заборонено');
+                    return;
+                }
 
                 const data = await res.json();
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('payments-table-container').style.display = 'table';
-                renderPayments(data, token);
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
 
-            } catch (err) { console.error(err); loginError.textContent = 'Помилка при завантаженні даних'; }
-        });
-
-        function renderPayments(data, token) {
-            const tbody = document.getElementById('payments-table');
-            tbody.innerHTML = '';
-            if (data.length === 0) { tbody.innerHTML = '<tr><td colspan="6">Контактів немає</td></tr>'; return; }
-            data.forEach(p => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
+                const tbody = document.getElementById('tableBody');
+                tbody.innerHTML = '';
+                data.forEach(p => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
             <td>${p.orderId}</td>
             <td>${p.phone || ''}</td>
             <td>${p.email || ''}</td>
             <td>${p.telegramUsername || ''}</td>
             <td>${p.addedToChannel ? '✅' : '❌'}</td>
-            <td>${!p.addedToChannel ? `<button onclick="markAdded('${p.orderId}','${token}')">Позначити доданим</button>` : ''}</td>
-        `;
-                tbody.appendChild(tr);
-            });
+            <td>
+              ${p.addedToChannel
+                            ? ''
+                            : `<button onclick="markAdded('${p.orderId}')">Позначити доданим</button>`
+                        }
+            </td>
+          `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                console.error(err);
+                alert('Помилка при завантаженні даних');
+            }
         }
 
-        async function markAdded(orderId, token) {
+        async function markAdded(orderId) {
             try {
-                const res = await fetch('/api/admin/mark-added', {
+                const res = await fetch('/api/mark-added', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + adminToken
+                    },
                     body: JSON.stringify({ orderId })
                 });
-                const data = await res.json();
-                if (data.success) {
-                    const res2 = await fetch('/api/admin/payments', { headers: { 'Authorization': 'Bearer ' + token } });
-                    renderPayments(await res2.json(), token);
-                } else alert('Помилка: ' + data.error);
-            } catch (err) { console.error(err); alert('Помилка при оновленні запису'); }
+
+                if (!res.ok) {
+                    alert('Помилка при оновленні');
+                    return;
+                }
+
+                await loadPayments();
+            } catch (err) {
+                console.error(err);
+                alert('Помилка при оновленні');
+            }
         }
     </script>
 </body>
