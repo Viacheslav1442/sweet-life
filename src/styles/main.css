@@ -5,14 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
 * {
-  box-sizing: border-box; /* Глобально для кращого контролю розмірів */
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Asap', sans-serif !important;
   font-weight: 400;
   font-style: normal;
-  /* Покращено: Додано rem для кращої масштабуємості на мобільних */
   font-size: 1rem;
   background: linear-gradient(
     90deg,
@@ -21,7 +20,6 @@ body {
     rgba(247, 236, 255, 1) 66%,
     rgba(144, 0, 255, 0.8) 100%
   );
-  /* НОВЕ: Покращено контраст для a11y (темніший колір для тексту) */
   color: #2a1a1a;
   margin: 0;
   padding: 0;
@@ -30,7 +28,6 @@ body {
   align-items: center;
   min-height: 100vh;
   text-align: center;
-  /* НОВЕ: Додано line-height для кращої читабельності */
   line-height: 1.6;
 }
 
@@ -52,7 +49,6 @@ body {
   min-width: 300px;
   max-width: 400px;
   padding: 20px;
-  /* НОВЕ: Гнучкі зображення для responsive (max-width: 100%) */
 }
 
 .chef-image img {
@@ -60,7 +56,6 @@ body {
   height: auto;
   border-radius: 10px;
   object-fit: cover;
-  /* НОВЕ: Додано для кращої адаптивності на маленьких екранах */
   max-width: 100%;
 }
 
@@ -68,7 +63,7 @@ body {
   flex: 1;
   min-width: 300px;
   padding: 20px;
-  font-family: 'Playfair Display', serif; /* НОВЕ: Змінено шрифт на Playfair Display для елегантності */
+  font-family: 'Playfair Display', serif;
   color: #333;
   border: 2px solid #800080;
   border-radius: 10px;
@@ -79,7 +74,7 @@ body {
   font-size: 2rem;
   color: #800080;
   margin-bottom: 15px;
-  font-weight: 700; /* НОВЕ: Жирний шрифт для заголовка */
+  font-weight: 700;
 }
 
 .chef-text p:first-of-type {
@@ -87,7 +82,7 @@ body {
   line-height: 1.6;
   margin-bottom: 15px;
   color: #3c2f2f;
-  font-weight: 600; /* НОВЕ: Полужирний шрифт для першого параграфа */
+  font-weight: 600;
 }
 
 .chef-text p:last-of-type {
@@ -95,10 +90,9 @@ body {
   line-height: 1.6;
   margin-bottom: 15px;
   color: #800080;
-  font-weight: 600; /* Полужирный для большей выразительности */
+  font-weight: 600;
 }
 
-/* Стили для заголовка h1 */
 h1.chef-text {
   font-family: 'Dancing Script', cursive;
   font-weight: 700;
@@ -110,11 +104,9 @@ h1.chef-text {
   display: inline-block;
   margin-bottom: 20px;
   color: #3c2f2f;
-  /* НОВОЕ: Светлая почти белая обводка для всех устройств */
   text-shadow: 1px 1px 2px #3c2f2f, 0 0 3px rgba(255, 255, 255, 0.95);
 }
 
-/* Стили для заголовка "Що ви отримуєте в курсі" */
 .course-info {
   font-family: 'Dancing Script', cursive;
   font-weight: 700;
@@ -122,11 +114,9 @@ h1.chef-text {
   line-height: 1.3;
   margin: 20px 0;
   color: #6a1b9a;
-  /* НОВОЕ: Светлая почти белая обводка для всех устройств */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 3px rgba(255, 255, 255, 0.95);
 }
 
-/* Стили для списка курса */
 .course-list {
   font-family: 'Dancing Script', cursive;
   font-weight: 600;
@@ -137,39 +127,30 @@ h1.chef-text {
   color: #6a1b9a;
   text-align: left;
   list-style-type: decimal;
-  /* НОВОЕ: Светлая почти белая обводка для текста списка */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 3px rgba(255, 255, 255, 0.95);
 }
 
-/* Стили для элементов li */
 .course-list li {
-  /* НОВОЕ: Светлая обводка для текста внутри li */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 3px rgba(255, 255, 255, 0.95);
 }
 
-/* Стили для номеров списка (цифры 1–5) */
 .course-list ::marker {
-  /* НОВОЕ: Светлая обводка для номеров списка */
   color: #6a1b9a;
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.95);
 }
 
-/* Адаптивность для планшетов (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
   h1.chef-text {
-    font-size: 1.8em;
-    /* НОВОЕ: Сохраняем обводку */
+    font-size: 2em;
     text-shadow: 1px 1px 2px #3c2f2f, 0 0 3px rgba(255, 255, 255, 0.95);
   }
   .course-info {
     font-size: 3em;
-    /* НОВОЕ: Сохраняем обводку */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
       0 0 3px rgba(255, 255, 255, 0.95);
   }
   .course-list {
     font-size: 2em;
-    /* НОВОЕ: Сохраняем обводку */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
       0 0 3px rgba(255, 255, 255, 0.95);
   }
@@ -182,11 +163,10 @@ h1.chef-text {
   }
 }
 
-/* Адаптивность для мобильных устройств (до 768px) */
 @media only screen and (max-width: 768px) {
   h1.chef-text {
     padding: 10px 5px;
-    font-size: 1.2em;
+    font-size: 2em; /* Увеличен размер шрифта для мобильных */
     border: 1.5px solid #800080;
     margin-bottom: 20px;
     max-width: 80%;
@@ -195,14 +175,12 @@ h1.chef-text {
     line-height: 1.4;
     background: #fff;
     color: #3c2f2f;
-    /* НОВОЕ: Сохраняем обводку */
     text-shadow: 1px 1px 2px #3c2f2f, 0 0 3px rgba(255, 255, 255, 0.95);
   }
   .course-info {
     font-size: 2.8em;
     line-height: 1.3;
     margin: 10px 0;
-    /* НОВОЕ: Сохраняем обводку */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
       0 0 3px rgba(255, 255, 255, 0.95);
   }
@@ -210,7 +188,6 @@ h1.chef-text {
     font-size: 1.8em;
     line-height: 1.4;
     padding-left: 40px;
-    /* НОВОЕ: Сохраняем обводку */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
       0 0 3px rgba(255, 255, 255, 0.95);
   }
@@ -223,17 +200,14 @@ h1.chef-text {
   }
 }
 
-/* Для очень маленьких экранов (до 480px) */
 @media only screen and (max-width: 480px) {
   h1.chef-text {
-    font-size: 1.2em;
-    /* НОВОЕ: Сохраняем обводку, чуть уменьшенную для маленьких экранов */
+    font-size: 1.8em; /* Еще больше увеличен размер шрифта для маленьких экранов */
     text-shadow: 1px 1px 2px #3c2f2f, 0 0 2px rgba(255, 255, 255, 0.95);
   }
   .course-info {
     font-size: 2.2em;
     line-height: 1.3;
-    /* НОВОЕ: Сохраняем обводку, чуть уменьшенную */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
       0 0 2px rgba(255, 255, 255, 0.95);
   }
@@ -241,7 +215,6 @@ h1.chef-text {
     font-size: 1.5em;
     line-height: 1.4;
     padding-left: 20px;
-    /* НОВОЕ: Сохраняем обводку, чуть уменьшенную */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3),
       0 0 2px rgba(255, 255, 255, 0.95);
   }
@@ -255,17 +228,12 @@ h1.chef-text {
 }
 
 .benefits {
-  display: flex;
-  justify-content: space-around;
-  margin: 30px 0;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 1200px;
-  width: 100%;
-  /* НОВЕ: Додано CSS Grid для кращої responsive сітки (2 колонки на десктопі, 1 на мобільному) */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  margin: 30px 0;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .benefit-block {
@@ -273,7 +241,6 @@ h1.chef-text {
   border: 2px solid #3c2f2f;
   border-radius: 15px;
   padding: 20px;
-  /* Покращено: Використано fr для fluid grid */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -352,7 +319,6 @@ h1.chef-text {
   font-weight: bold;
   font-size: 2.2em;
   color: #c300ff;
-  /* Покращено: Зменшено тінь для кращої читабельності */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   margin-bottom: 10px;
 }
@@ -374,14 +340,12 @@ h1.chef-text {
   cursor: pointer;
   border-radius: 25px;
   transition: background 0.3s, transform 0.2s;
-  /* НОВЕ: Додано focus для a11y (клавіатурна навігація) */
 }
 
 .main-button:hover,
 .main-button:focus {
   background: #660066;
   transform: scale(1.05);
-  /* НОВЕ: Виділення для фокусу */
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
@@ -406,20 +370,6 @@ h1 {
   margin: 0;
   font-size: 2.8em;
   color: #fff;
-}
-
-h1.chef-text {
-  font-family: 'Dancing Script', cursive;
-  font-weight: 700;
-  font-size: 2.2em;
-  border: 1px solid #800080;
-  border-radius: 10px;
-  padding: 15px;
-  background: #fff;
-  display: inline-block;
-  margin-bottom: 20px;
-  color: #3c2f2f;
-  text-shadow: 1px 1px 2px #3c2f2f;
 }
 
 main {
@@ -464,18 +414,12 @@ main p.payment-text {
   margin-bottom: 20px;
 }
 
-/* НОВЕ: Додано медіа-запит для планшетів (768px - 1024px) для кращої адаптивності */
 @media (max-width: 1024px) and (min-width: 769px) {
   .benefits {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .benefit-block {
     width: 100%;
-  }
-
-  h1.chef-text {
-    font-size: 1.8em;
   }
 }
 
@@ -486,30 +430,25 @@ main p.payment-text {
     margin: 0px auto;
     padding: 10px;
   }
-
   .chef-image {
     max-width: 100%;
     padding: 0px 10px 5px 10px;
     min-height: 450px;
   }
-
   .chef-image,
   .chef-text {
     max-width: 100%;
   }
-
   .slider-container {
     height: 450px;
     width: 100%;
     margin: 0 auto;
   }
-
   .benefits {
     grid-template-columns: 1fr;
     align-items: center;
     width: 100%;
   }
-
   .benefit-block {
     width: 100% !important;
     margin: 10px 0;
@@ -517,7 +456,6 @@ main p.payment-text {
     box-sizing: border-box;
     border: 2px solid #3c2f2f;
   }
-
   .benefit-block h3 {
     font-family: 'Playfair Display', serif;
     font-weight: bold;
@@ -526,7 +464,6 @@ main p.payment-text {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     margin-bottom: 10px;
   }
-
   .benefit-block p {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
@@ -534,44 +471,23 @@ main p.payment-text {
     color: #fff;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
-
   main {
     background-color: transparent;
     max-width: 900px;
     padding: 20px;
     border-radius: 15px;
   }
-
   h1 {
     font-size: 2em;
   }
-
   .main-button {
     padding: 12px 20px;
     font-size: 1em;
   }
-
-  h1.chef-text {
-    padding: 10px 5px;
-    font-size: 1.2em !important;
-    font-family: 'Dancing Script', cursive;
-    font-weight: 700;
-    border: 1.5px solid #800080;
-    margin-bottom: 20px;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.4;
-    background: #fff;
-    color: #3c2f2f;
-    text-shadow: 1px 1px 2px #3c2f2f;
-  }
-
   p.intro-text {
     font-size: 1.2em;
     margin-bottom: 20px;
   }
-
   .course-info {
     font-family: 'Dancing Script', cursive;
     font-weight: 700;
@@ -581,7 +497,6 @@ main p.payment-text {
     color: #6a1b9a;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
-
   .course-list {
     font-family: 'Dancing Script', cursive;
     font-weight: 600;
@@ -594,37 +509,29 @@ main p.payment-text {
     list-style-type: decimal;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
-
   main p.payment-text {
     font-size: 1em;
     margin-bottom: 15px;
     color: #3c2f2f !important;
   }
+}
 
-  /* НОВЕ: Додано для дуже маленьких екранів (під 480px) */
-  @media (max-width: 480px) {
-    body {
-      font-size: 0.9rem;
-    }
-
-    .course-list {
-      padding-left: 20px;
-      font-size: 1.1em;
-    }
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem;
+  }
+  .course-list {
+    padding-left: 20px;
+    font-size: 1.1em;
   }
 }
-/* Стили для секции с ценой */
+
 .price-section {
   max-width: 1200px;
   margin: 30px auto;
   padding: 20px;
   text-align: center;
-  background: rgba(
-    255,
-    247,
-    240,
-    0.9
-  ); /* Светлый фон, похожий на .chef-container */
+  background: rgba(255, 247, 240, 0.9);
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -654,7 +561,7 @@ main p.payment-text {
 
 .price-text .price-full {
   color: #6a1b9a;
-  text-decoration: line-through; /* Зачеркнутая цена */
+  text-decoration: line-through;
   font-weight: 600;
 }
 
@@ -664,7 +571,6 @@ main p.payment-text {
   font-size: 1.5em;
 }
 
-/* Адаптивность для планшетов */
 @media (max-width: 1024px) and (min-width: 769px) {
   .price-title {
     font-size: 3em;
@@ -676,7 +582,6 @@ main p.payment-text {
   }
 }
 
-/* Адаптивность для мобильных устройств */
 @media only screen and (max-width: 768px) {
   .price-section {
     margin: 20px 10px;
@@ -692,7 +597,6 @@ main p.payment-text {
   }
 }
 
-/* Для очень маленьких экранов */
 @media only screen and (max-width: 480px) {
   .price-title {
     font-size: 2.2em;
@@ -703,5 +607,3 @@ main p.payment-text {
     font-size: 1.1em;
   }
 }
-
-/* ... (остальной код main.css остается без изменений) */
