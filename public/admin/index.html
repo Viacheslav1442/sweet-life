@@ -3,11 +3,15 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Admin Panel</title>
+    <title>Адмінка</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+        }
+
+        .hidden {
+            display: none;
         }
 
         table {
@@ -18,118 +22,121 @@
 
         th,
         td {
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             padding: 8px;
             text-align: left;
         }
 
         th {
-            background-color: #f4f4f4;
+            background: #f4f4f4;
         }
 
         button {
-            padding: 5px 10px;
-        }
-
-        #login {
-            margin-bottom: 20px;
+            padding: 4px 8px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Admin Panel</h1>
+    <h1>Адмін-панель</h1>
 
     <div id="login">
-        <input type="password" id="token" placeholder="Введіть пароль" />
-        <button onclick="login()">Увійти</button>
+        <p>Введіть пароль адміністратора:</p>
+        <input type="password" id="password" />
+        <button id="loginBtn">Увійти</button>
+        <p id="loginError" style="color: red;"></p>
     </div>
 
-    <div id="content" style="display: none;">
+    <div id="dashboard" class="hidden">
+        <h2>Список платежів</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Order ID</th>
-                    <th>Телефон</th>
-                    <th>Email</th>
+                    <th>orderId</th>
                     <th>Telegram</th>
-                    <th>Додано до каналу</th>
-                    <th>Дія</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Added</th>
+                    <th>Дії</th>
                 </tr>
             </thead>
-            <tbody id="tableBody"></tbody>
+            <tbody id="paymentsTable"></tbody>
         </table>
     </div>
 
     <script>
-        let adminToken = '';
+        const loginDiv = document.getElementById("login");
+        const dashboardDiv = document.getElementById("dashboard");
+        const loginBtn = document.getElementById("loginBtn");
+        const loginError = document.getElementById("loginError");
+        const paymentsTable = document.getElementById("paymentsTable");
 
-        function login() {
-            adminToken = document.getElementById('token').value.trim();
-            loadPayments();
+        async function fetchPayments() {
+            const token = localStorage.getItem("adminToken");
+            try {
+                const res = await fetch("/api/admin/payments", {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+                if (!res.ok) throw new Error("Forbidden");
+                const payments = await res.json();
+                renderPayments(payments);
+            } catch (e) {
+                loginError.textContent = "Доступ заборонено";
+                loginDiv.classList.remove("hidden");
+                dashboardDiv.classList.add("hidden");
+            }
         }
 
-        async function loadPayments() {
-            try {
-                const res = await fetch('/api/admin-payments', {
-                    headers: { Authorization: 'Bearer ' + adminToken }
-                });
-
-                if (!res.ok) {
-                    alert('Доступ заборонено');
-                    return;
-                }
-
-                const data = await res.json();
-                document.getElementById('login').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-
-                const tbody = document.getElementById('tableBody');
-                tbody.innerHTML = '';
-                data.forEach(p => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-            <td>${p.orderId}</td>
-            <td>${p.phone || ''}</td>
-            <td>${p.email || ''}</td>
-            <td>${p.telegramUsername || ''}</td>
-            <td>${p.addedToChannel ? '✅' : '❌'}</td>
-            <td>
-              ${p.addedToChannel
-                            ? ''
-                            : `<button onclick="markAdded('${p.orderId}')">Позначити доданим</button>`
-                        }
-            </td>
-          `;
-                    tbody.appendChild(tr);
-                });
-            } catch (err) {
-                console.error(err);
-                alert('Помилка при завантаженні даних');
-            }
+        function renderPayments(payments) {
+            paymentsTable.innerHTML = "";
+            payments.forEach((p) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+          <td>${p.orderId}</td>
+          <td>${p.telegramUsername}</td>
+          <td>${p.phone || ""}</td>
+          <td>${p.email || ""}</td>
+          <td>${p.addedToChannel ? "✅" : "❌"}</td>
+          <td>
+            ${p.addedToChannel
+                        ? ""
+                        : `<button onclick="markAdded('${p.orderId}')">Позначити доданим</button>`
+                    }
+          </td>
+        `;
+                paymentsTable.appendChild(tr);
+            });
         }
 
         async function markAdded(orderId) {
-            try {
-                const res = await fetch('/api/mark-added', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: 'Bearer ' + adminToken
-                    },
-                    body: JSON.stringify({ orderId })
-                });
+            const token = localStorage.getItem("adminToken");
+            await fetch("/api/admin/mark-added", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({ orderId }),
+            });
+            fetchPayments();
+        }
 
-                if (!res.ok) {
-                    alert('Помилка при оновленні');
-                    return;
-                }
+        loginBtn.addEventListener("click", () => {
+            const pwd = document.getElementById("password").value.trim();
+            if (!pwd) return;
+            localStorage.setItem("adminToken", pwd);
+            fetchPayments().then(() => {
+                loginDiv.classList.add("hidden");
+                dashboardDiv.classList.remove("hidden");
+            });
+        });
 
-                await loadPayments();
-            } catch (err) {
-                console.error(err);
-                alert('Помилка при оновленні');
-            }
+        // Якщо токен вже збережено у localStorage → пробуємо одразу увійти
+        if (localStorage.getItem("adminToken")) {
+            fetchPayments().then(() => {
+                loginDiv.classList.add("hidden");
+                dashboardDiv.classList.remove("hidden");
+            });
         }
     </script>
 </body>
