@@ -1,41 +1,29 @@
 import Modal from './components/Modal.js';
 import { handlePaymentCallback } from './utils/paymentCallback.js';
 import { initJoinForm } from './components/JoinForm.js';
-import { initButtonJoin } from './components/ButtonJoin.js';
 import './components/Slider.js';
 
-console.log('main.js завантажено');
-
-// Дочекатися завантаження DOM
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM завантажено, ініціалізація компонентів');
-
-    // Ініціалізація модалки
     const modal = new Modal('myModal');
-    console.log('Модалка ініціалізована');
     modal.initCloseOnOutsideClick();
     modal.initCloseButton();
 
-    // Ініціалізація кнопки та форми
-    console.log('Запуск initButtonJoin');
-    initButtonJoin(modal);
-    console.log('Запуск initJoinForm');
+    // Відкриття модалки через конкретні кнопки
+    const openModalBtn = document.getElementById('openModal');
+    const openModalNowBtn = document.getElementById('openModalNow');
+
+    if (openModalBtn) openModalBtn.addEventListener('click', () => modal.open());
+    if (openModalNowBtn) openModalNowBtn.addEventListener('click', () => modal.open());
+
+    // Ініціалізація форми Telegram
     initJoinForm();
 
-    // Обробка callback після оплати
+    // Callback після оплати
     const form = document.getElementById("registration-form");
     const successMessage = document.getElementById("success-message");
     const telegramLink = document.getElementById("telegram-link");
 
-    if (form && successMessage && modal.modal && telegramLink) {
-        console.log('Усі елементи для callback знайдені');
-        handlePaymentCallback({ form, successMessage, modal: modal.modal, telegramLink });
-    } else {
-        console.error("Один або більше елементів для callback не знайдені:", {
-            form: !!form,
-            successMessage: !!successMessage,
-            modal: !!modal.modal,
-            telegramLink: !!telegramLink
-        });
+    if (form && successMessage && telegramLink) {
+        handlePaymentCallback({ form, successMessage, modal, telegramLink });
     }
 });

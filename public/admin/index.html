@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Адмінка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #f4f4f4;
+        }
+
+        button {
+            padding: 4px 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Адмін-панель</h1>
+
+    <div id="login">
+        <p>Введіть пароль адміністратора:</p>
+        <input type="password" id="password" />
+        <button id="loginBtn">Увійти</button>
+        <p id="loginError" style="color: red;"></p>
+    </div>
+
+    <div id="dashboard" class="hidden">
+        <h2>Список платежів</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>orderId</th>
+                    <th>Telegram</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Added</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody id="paymentsTable"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const loginDiv = document.getElementById("login");
+        const dashboardDiv = document.getElementById("dashboard");
+        const loginBtn = document.getElementById("loginBtn");
+        const loginError = document.getElementById("loginError");
+        const paymentsTable = document.getElementById("paymentsTable");
+
+        async function fetchPayments() {
+            const token = localStorage.getItem("adminToken");
+            try {
+                const res = await fetch("/api/admin/payments", {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+                if (!res.ok) throw new Error("Forbidden");
+                const payments = await res.json();
+                renderPayments(payments);
+            } catch (e) {
+                loginError.textContent = "Доступ заборонено";
+                loginDiv.classList.remove("hidden");
+                dashboardDiv.classList.add("hidden");
+            }
+        }
+
+        function renderPayments(payments) {
+            paymentsTable.innerHTML = "";
+            payments.forEach((p) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+          <td>${p.orderId}</td>
+          <td>${p.telegramUsername}</td>
+          <td>${p.phone || ""}</td>
+          <td>${p.email || ""}</td>
+          <td>${p.addedToChannel ? "✅" : "❌"}</td>
+          <td>
+            ${p.addedToChannel
+                        ? ""
+                        : `<button onclick="markAdded('${p.orderId}')">Позначити доданим</button>`
+                    }
+          </td>
+        `;
+                paymentsTable.appendChild(tr);
+            });
+        }
+
+        async function markAdded(orderId) {
+            const token = localStorage.getItem("adminToken");
+            await fetch("/api/admin/mark-added", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({ orderId }),
+            });
+            fetchPayments();
+        }
+
+        loginBtn.addEventListener("click", () => {
+            const pwd = document.getElementById("password").value.trim();
+            if (!pwd) return;
+            localStorage.setItem("adminToken", pwd);
+            fetchPayments().then(() => {
+                loginDiv.classList.add("hidden");
+                dashboardDiv.classList.remove("hidden");
+            });
+        });
+
+        // Якщо токен вже збережено у localStorage → пробуємо одразу увійти
+        if (localStorage.getItem("adminToken")) {
+            fetchPayments().then(() => {
+                loginDiv.classList.add("hidden");
+                dashboardDiv.classList.remove("hidden");
+            });
+        }
+    </script>
+</body>
+
+</html>
