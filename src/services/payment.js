@@ -1,19 +1,24 @@
+// payment.js
 export async function initiatePayment({ telegram, email, phone, amount = 279 }) {
     try {
-        // Формуємо URL з параметрами для сервера
-        const params = new URLSearchParams({ amount, description: "Оплата доступу" });
-        const response = await fetch(`/api/pay?${params.toString()}`);
-        const html = await response.text();
+        const response = await fetch('/api/pay', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ telegram, email, phone, amount }),
+        });
 
-        // Вставляємо форму в DOM (можна у спеціальний контейнер)
+        const data = await response.json();
+
         const container = document.getElementById('payment-container');
-        if (container) {
-            container.innerHTML = html;
+
+        if (data.success && container) {
+            container.innerHTML = data.form; // вставляємо форму LiqPay
         } else {
-            console.warn('Не знайдено контейнер для форми оплати');
+            console.error('Помилка ініціації оплати:', data.error);
+            alert('Помилка ініціації оплати');
         }
 
-        return { success: true };
+        return data;
     } catch (error) {
         console.error('Помилка ініціації оплати:', error);
         return { success: false, error };
