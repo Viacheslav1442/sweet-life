@@ -1,15 +1,21 @@
-
-
-export async function initiatePayment(telegram, email, phone, amount = 279) {
+export async function initiatePayment({ telegram, email, phone, amount = 279 }) {
     try {
-        const response = await fetch('/api/initiate-payment', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ telegram, email, phone, amount })
-        });
-        return await response.json();
+        // Формуємо URL з параметрами для сервера
+        const params = new URLSearchParams({ amount, description: "Оплата доступу" });
+        const response = await fetch(`/api/pay?${params.toString()}`);
+        const html = await response.text();
+
+        // Вставляємо форму в DOM (можна у спеціальний контейнер)
+        const container = document.getElementById('payment-container');
+        if (container) {
+            container.innerHTML = html;
+        } else {
+            console.warn('Не знайдено контейнер для форми оплати');
+        }
+
+        return { success: true };
     } catch (error) {
         console.error('Помилка ініціації оплати:', error);
-        throw error;
+        return { success: false, error };
     }
 }

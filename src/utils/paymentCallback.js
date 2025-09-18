@@ -1,22 +1,24 @@
 export function handlePaymentCallback({ form, successMessage, modal, telegramLink }) {
     window.addEventListener('load', async () => {
         const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('payment') === 'success' && urlParams.get('order_id')) {
-            const orderId = urlParams.get('order_id');
+        const paymentStatus = urlParams.get('payment');
+        const orderId = urlParams.get('order_id');
+
+        if (paymentStatus === 'success' && orderId) {
             try {
                 const response = await fetch(`/api/get-invite?order_id=${orderId}`);
                 const data = await response.json();
 
                 if (data.success && data.inviteLink) {
-                    telegramLink.href = data.inviteLink;
-                    telegramLink.textContent = 'Приєднатися до каналу';
+                    if (telegramLink) {
+                        telegramLink.href = data.inviteLink;
+                        telegramLink.textContent = 'Приєднатися до каналу';
+                    }
 
-                    // Сховати форму та показати повідомлення
-                    form.classList.add('hidden');
-                    successMessage.classList.remove('hidden');
+                    if (form) form.classList.add('hidden');
+                    if (successMessage) successMessage.classList.remove('hidden');
 
-                    // Відкрити модалку
-                    modal.open();
+                    if (modal && typeof modal.open === 'function') modal.open();
                 } else {
                     console.error('Лінк не знайдено:', data.error);
                     alert('Помилка: запрошення недоступне');
