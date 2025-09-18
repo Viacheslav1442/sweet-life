@@ -1,6 +1,7 @@
 // payment.js
 export async function initiatePayment({ telegram, email, phone, amount = 279 }) {
     try {
+        // Відправляємо дані на сервер для генерації форми LiqPay
         const response = await fetch('/api/pay', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -12,7 +13,8 @@ export async function initiatePayment({ telegram, email, phone, amount = 279 }) 
         const container = document.getElementById('payment-container');
 
         if (data.success && container) {
-            container.innerHTML = data.form; // вставляємо форму LiqPay
+            // Вставляємо форму LiqPay у контейнер модалки
+            container.innerHTML = data.form;
         } else {
             console.error('Помилка ініціації оплати:', data.error);
             alert('Помилка ініціації оплати');
