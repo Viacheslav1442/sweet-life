@@ -606,7 +606,7 @@ main p.payment-text {
 
 .footer-logo h2 {
   font-family: 'Dancing Script', cursive;
-  font-size: 2.5em;
+  font-size: 3em; /* Увеличен размер шрифта */
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   margin: 0;
@@ -629,12 +629,12 @@ main p.payment-text {
 
 .social-icons {
   display: flex;
-  gap: 25px; /* Увеличен отступ между иконками */
+  gap: 25px;
   justify-content: center;
 }
 
 .social-icon img {
-  width: 50px; /* Увеличен размер иконок */
+  width: 50px;
   height: 50px;
   transition: transform 0.3s ease;
 }
@@ -673,7 +673,7 @@ main p.payment-text {
     gap: 20px;
   }
   .footer-logo h2 {
-    font-size: 2em;
+    font-size: 2.5em; /* Увеличен размер для планшетов */
   }
   .footer-social h3,
   .footer-contact h3 {
@@ -689,14 +689,14 @@ main p.payment-text {
     padding: 20px 10px;
   }
   .footer-logo h2 {
-    font-size: 1.8em;
+    font-size: 2.2em; /* Увеличен размер для мобильных */
   }
   .footer-social h3,
   .footer-contact h3 {
     font-size: 1.2em;
   }
   .social-icon img {
-    width: 40px; /* Меньший размер для маленьких экранов */
+    width: 40px;
     height: 40px;
   }
 }
