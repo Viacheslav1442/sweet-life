@@ -629,13 +629,13 @@ main p.payment-text {
 
 .social-icons {
   display: flex;
-  gap: 20px;
+  gap: 25px; /* Увеличен отступ между иконками */
   justify-content: center;
 }
 
 .social-icon img {
-  width: 40px;
-  height: 40px;
+  width: 50px; /* Увеличен размер иконок */
+  height: 50px;
   transition: transform 0.3s ease;
 }
 
@@ -696,7 +696,7 @@ main p.payment-text {
     font-size: 1.2em;
   }
   .social-icon img {
-    width: 30px;
-    height: 30px;
+    width: 40px; /* Меньший размер для маленьких экранов */
+    height: 40px;
   }
 }
