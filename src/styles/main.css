@@ -606,7 +606,7 @@ main p.payment-text {
 
 .footer-logo h2 {
   font-family: 'Dancing Script', cursive;
-  font-size: 3em; /* Увеличен размер шрифта */
+  font-size: 3.5em; /* Ещё больше размер шрифта */
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   margin: 0;
@@ -673,7 +673,7 @@ main p.payment-text {
     gap: 20px;
   }
   .footer-logo h2 {
-    font-size: 2.5em; /* Увеличен размер для планшетов */
+    font-size: 3em; /* Ещё больше размер для планшетов */
   }
   .footer-social h3,
   .footer-contact h3 {
@@ -689,7 +689,7 @@ main p.payment-text {
     padding: 20px 10px;
   }
   .footer-logo h2 {
-    font-size: 2.2em; /* Увеличен размер для мобильных */
+    font-size: 2.5em; /* Ещё больше размер для мобильных */
   }
   .footer-social h3,
   .footer-contact h3 {
