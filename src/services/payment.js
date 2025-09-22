@@ -1,15 +1,28 @@
-
-
-export async function initiatePayment(telegram, email, phone, amount = 279) {
+// payment.js
+export async function initiatePayment({ telegram, email, phone, amount = 279 }) {
     try {
-        const response = await fetch('/api/initiate-payment', {
+        // Відправляємо дані на сервер для генерації форми LiqPay
+        const response = await fetch('/api/pay', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ telegram, email, phone, amount })
+            body: JSON.stringify({ telegram, email, phone, amount }),
         });
-        return await response.json();
+
+        const data = await response.json();
+
+        const container = document.getElementById('payment-container');
+
+        if (data.success && container) {
+            // Вставляємо форму LiqPay у контейнер модалки
+            container.innerHTML = data.form;
+        } else {
+            console.error('Помилка ініціації оплати:', data.error);
+            alert('Помилка ініціації оплати');
+        }
+
+        return data;
     } catch (error) {
         console.error('Помилка ініціації оплати:', error);
-        throw error;
+        return { success: false, error };
     }
 }

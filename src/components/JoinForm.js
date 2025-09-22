@@ -1,47 +1,37 @@
+// JoinForm.js
 import { initiatePayment } from '../services/payment.js';
 
 export function initJoinForm() {
     const form = document.getElementById("registration-form");
-    if (form) {
-        form.addEventListener("submit", async function (event) {
-            event.preventDefault();
-            console.log("Форма відправлена");
+    if (!form) return console.error("Форма з id='registration-form' не знайдена");
 
-            const telegram = document.getElementById("telegram").value;
-            const email = document.getElementById("email").value;
-            const phone = document.getElementById("phone").value;
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        console.log("Форма відправлена");
 
-            try {
-                const data = await initiatePayment(telegram, email, phone, 279);
-                if (data.success) {
-                    const liqpayForm = document.createElement('form');
-                    liqpayForm.method = 'POST';
-                    liqpayForm.action = 'https://www.liqpay.ua/api/3/checkout';
-                    liqpayForm.acceptCharset = 'utf-8';
+        const telegram = document.getElementById("telegram").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
 
-                    const inputData = document.createElement('input');
-                    inputData.type = 'hidden';
-                    inputData.name = 'data';
-                    inputData.value = data.liqpayData;
-                    liqpayForm.appendChild(inputData);
+        try {
+            // Викликаємо initiatePayment, який повертає готову форму
+            const data = await initiatePayment({ telegram, email, phone, amount: 279 });
 
-                    const inputSignature = document.createElement('input');
-                    inputSignature.type = 'hidden';
-                    inputSignature.name = 'signature';
-                    inputSignature.value = data.liqpaySignature;
-                    liqpayForm.appendChild(inputSignature);
-
-                    document.body.appendChild(liqpayForm);
+            if (data.success) {
+                // Форма вже вставлена в контейнер у initiatePayment
+                // Автоматично сабмітимо її
+                const liqpayForm = document.querySelector('#payment-container form');
+                if (liqpayForm) {
                     liqpayForm.submit();
                 } else {
-                    throw new Error('Помилка ініціації оплати');
+                    console.warn('Форма LiqPay не знайдена для сабміту');
                 }
-            } catch (error) {
-                console.error("Помилка оплати:", error);
-                alert("Сталася помилка під час обробки.");
+            } else {
+                throw new Error(data.error || 'Помилка ініціації оплати');
             }
-        });
-    } else {
-        console.error("Форма з id='registration-form' не знайдена");
-    }
+        } catch (error) {
+            console.error("Помилка оплати:", error);
+            alert("Сталася помилка під час обробки.");
+        }
+    });
 }

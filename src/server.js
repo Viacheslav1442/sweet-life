@@ -4,6 +4,9 @@ import path from 'path';
 import dotenv from 'dotenv';
 import url from 'url';
 
+import { initiatePayment } from './services/payment.js';
+import { handlePaymentCallback } from './utils/paymentCallback.js';
+
 dotenv.config();
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const app = express();
@@ -12,6 +15,7 @@ const DB_FILE = path.join(process.cwd(), 'db.json');
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || 'change_me';
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // для callback
 
 // ======================
 // DB
@@ -28,12 +32,13 @@ async function readDB() {
   await initDB();
   return JSON.parse(await fs.readFile(DB_FILE, 'utf8'));
 }
+
 async function saveDB(data) {
   await fs.writeFile(DB_FILE, JSON.stringify(data, null, 2));
 }
 
 // ======================
-// Збереження контактів після оплати
+// Збереження контактів
 // ======================
 app.post('/api/save-userdata', async (req, res) => {
   const { orderId, telegramUsername, phone, email } = req.body;
@@ -93,6 +98,38 @@ app.post('/api/admin/mark-added', requireAdminToken, async (req, res) => {
   rec.addedAt = new Date().toISOString();
   await saveDB(db);
   res.json({ success: true });
+});
+
+// ======================
+// Платежі через твої файли
+// ======================
+
+// Ініціація платежу
+app.post('/api/pay', async (req, res) => {
+  try {
+    const { telegram, email, phone, amount } = req.body;
+    const formHtml = await initiatePayment(telegram, email, phone, amount);
+    res.json({ success: true, form: formHtml });
+  } catch (err) {
+    console.error('❌ Payment initiation error:', err);
+    res
+      .status(500)
+      .json({ success: false, error: 'Payment initiation failed' });
+  }
+});
+
+// Callback після оплати
+app.post('/api/payment-callback', async (req, res) => {
+  try {
+    // handlePaymentCallback тепер приймає body (з твоєї логіки)
+    await handlePaymentCallback(req.body, readDB, saveDB);
+    res.sendStatus(200);
+  } catch (err) {
+    console.error('❌ Callback error:', err);
+    res
+      .status(500)
+      .json({ success: false, error: 'Callback processing failed' });
+  }
 });
 
 // ======================
